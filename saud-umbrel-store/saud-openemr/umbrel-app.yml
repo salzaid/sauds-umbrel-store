@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-openemr
+name: OpenEMR
+tagline: Open-source electronic health record for training and sandbox use
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/openemr.svg
+category: developer
+version: "8.4.1"
+port: 5425
+description: |
+  OpenEMR is a full EHR and practice-management system. This package is for training and sandbox use with synthetic patients only.
+
+  The first start sets up the database and takes 5 to 10 minutes. Log in as admin with the password shown in umbrelOS.
+developer: OpenEMR Foundation
+website: https://www.open-emr.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/openemr/openemr
+support: https://community.open-emr.org
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: ""
+deterministicPassword: true
