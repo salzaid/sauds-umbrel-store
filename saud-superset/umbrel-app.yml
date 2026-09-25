@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-superset
+name: Apache Superset
+tagline: Open-source business intelligence and data exploration
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/apache-superset.svg
+category: developer
+version: "6.1.0"
+port: 5411
+description: |
+  Superset explores SQL data with charts, dashboards and a SQL Lab. Metadata is stored in SQLite inside the app data folder, which is enough for single-user use.
+
+  Log in as admin with the password shown in umbrelOS.
+developer: Apache Software Foundation
+website: https://superset.apache.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/apache/superset
+support: https://github.com/apache/superset/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: ""
+deterministicPassword: true
