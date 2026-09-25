@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-pgadmin_web_1
+      APP_PORT: 80
+      PROXY_AUTH_ADD: "false"
+  init:
+    image: busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e
+    user: "0:0"
+    restart: 'no'
+    entrypoint:
+    - chown
+    - -R
+    - 5050:5050
+    - /var/lib/pgadmin
+    volumes:
+    - ${APP_DATA_DIR}/data/pgadmin:/var/lib/pgadmin
+  web:
+    image: dpage/pgadmin4:9.18.0@sha256:c332c5f6dfba995d9ebc4af261d93506d6876085d712eaaa3defc8dd1a3f26de
+    restart: on-failure
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: ${APP_PASSWORD}
+      PGADMIN_DISABLE_POSTFIX: 'true'
+      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: 'False'
+    volumes:
+    - ${APP_DATA_DIR}/data/pgadmin:/var/lib/pgadmin
