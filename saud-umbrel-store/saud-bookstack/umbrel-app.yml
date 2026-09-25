@@ -1,0 +1,37 @@
+manifestVersion: 1
+id: saud-bookstack
+storage:
+  dataRoot: data
+name: BookStack
+tagline: Install from the official Umbrel App Store (A simple, self-hosted platform for organizing documentation)
+category: files
+version: "26.09"
+port: 5441
+description: |
+  This is a disabled mirror of the official `bookstack` app. Install BookStack from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5441 so it cannot collide with the official app.
+
+  BookStack is a free and open source platform for creating and organizing documentation. It provides a familiar book, chapter, and page structure that makes it easy to build wikis, knowledge bases, manuals, and internal documentation.
+
+  Important: On first launch, sign in with the default credentials shown by Umbrel, then change the admin email address and password in BookStack.
+
+  The editor is designed for everyday writing, while permissions, shelves, search, diagrams, attachments, comments, and revision history help teams keep information organized and useful over time.
+
+  BookStack is self-hosted and stores your content on your Umbrel, so your documentation remains under your control.
+developer: BookStack
+website: https://www.bookstackapp.com/
+repo: https://github.com/BookStackApp/BookStack
+support: https://www.bookstackapp.com/docs/admin/
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+gallery: []
+releaseNotes: "BookStack 26.09 adds interface layout customization with theme support, new API endpoints for searching within a specific book or chapter, and downloadable API docs in JSON or HTML.\n\nThis release also improves the new WYSIWYG editor, adds a page scroll progress indicator, requires users to enter their existing password when changing passwords, and fixes LDAP group handling, markdown table alignment, and other UI/API issues.\n\nUpgrade note: BookStack now requires APP_KEY to be set; Umbrel already provides a stable APP_KEY for this package.\n\nFull release notes can be found at https://github.com/BookStackApp/BookStack/releases/tag/v26.09"
+dependencies: []
+path: ""
+defaultUsername: "admin@admin.com"
+defaultPassword: "password"
+backupIgnore:
+- data/config/log/*
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/bookstack/icon.svg
