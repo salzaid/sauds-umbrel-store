@@ -1,0 +1,45 @@
+manifestVersion: 1.1
+id: saud-portainer
+category: developer
+name: Portainer
+version: "2.45.1"
+tagline: Install from the official Umbrel App Store (Run custom Docker containers on your Umbrel)
+description: |
+  This is a disabled mirror of the official `portainer` app. Install Portainer from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5433 so it cannot collide with the official app.
+
+  ⚠️ Make sure to only use named Docker volumes for your stacks and containers. Data in bind-mounted volumes will be lost when the Portainer app is restarted or updated.
+
+  ⚠️ Watch out for port conflicts between your custom Docker containers and your umbrelOS apps.
+
+  Portainer is the ultimate Docker management solution that simplifies running Docker containers and Docker Compose setups on your Umbrel, putting comprehensive control at your fingertips.
+
+  Portainer provides seamless container management, allowing you to efficiently monitor, start, stop, and modify containers, networks, volumes, and images. You can also deploy multi-container applications using Docker Compose with ease.
+
+  🛠️ Portainer on Umbrel is for power users, follow these best practices to avoid issues:
+
+  1. Data persistence: Make sure to only used named Docker volumes for your stacks and containers. Data in bind-mounted volumes will be lost when the Portainer app is restarted or updated.
+
+  2. Port management: Watch out for potential port conflicts between your custom containers and umbrelOS' service containers, apps you have installed from the Umbrel App Store or Community App Stores, and any apps you go to install in the future.
+
+  3. Container restart policy: Set your containers to "unless-stopped" or "always" restart policies. This will allow your containers to restart automatically when the Portainer app is restarted or updated.
+
+  4. Web access to containers: Access your custom containers in your browser at umbrel.local:PORT_NUMBER. For example, for a container with a web UI running on port 4545, navigate to umbrel.local:4545 to access it.
+website: https://portainer.io
+dependencies: []
+repo: https://github.com/portainer/portainer
+support: https://github.com/portainer/portainer/issues
+port: 5433
+gallery: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: "changeme"
+releaseNotes: "Portainer 2.45.1 LTS includes security hardening, dependency updates, and UI fixes.\n\nHighlights include:\n  - Hardened outbound Helm and Git HTTP/HTTPS requests against SSRF bypasses\n  - Updated Go, gRPC, kubectl, Helm, Alpine packages, and other components to address CVEs\n  - Disabled certificate-based Azure Blob backup authentication in FIPS mode\n  - Simplified environment stat cards and clarified GitOps stack settings copy\n  - Fixed Swarm network rendering, Kubernetes node application listings, Helm registry credential cache invalidation, and Edge Updater status sorting\n\n\nFull release notes can be found at https://github.com/portainer/portainer/releases/tag/2.45.1."
+permissions:
+- GPU
+developer: Portainer
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/portainer/icon.svg
