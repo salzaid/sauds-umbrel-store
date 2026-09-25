@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: saud-grafana
+storage:
+  dataRoot: data
+name: Grafana
+tagline: Install from the official Umbrel App Store (The open-source platform for monitoring and observability)
+category: networking
+version: "13.2.2-patch.1"
+port: 5436
+description: |
+  This is a disabled mirror of the official `grafana` app. Install Grafana from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5436 so it cannot collide with the official app.
+
+  Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data-driven culture:
+
+  - Visualizations: Fast and flexible client side graphs with a multitude of options. Panel plugins offer many different ways to visualize metrics and logs.
+
+  - Dynamic Dashboards: Create dynamic & reusable dashboards with template variables that appear as dropdowns at the top of the dashboard.
+
+  - Explore Metrics: Explore your data through ad-hoc queries and dynamic drilldown. Split view and compare different time ranges, queries and data sources side by side.
+
+  - Explore Logs: Experience the magic of switching from metrics to logs with preserved label filters. Quickly search through all your logs or streaming them live.
+
+  - Alerting: Visually define alert rules for your most important metrics. Grafana will continuously evaluate and send notifications to systems like Slack, PagerDuty, VictorOps, OpsGenie.
+
+  - Mixed Data Sources: Mix different data sources in the same graph! You can specify a data source on a per-query basis. This works for even custom datasources.
+developer: Grafana Labs
+website: https://grafana.com
+repo: https://github.com/grafana/grafana
+support: https://grafana.com/help/
+gallery: []
+releaseNotes: "This update adds support for new storage management and configuration options being introduced with umbrelOS 2.0.\n\nPrevious Grafana 13.2.2 release notes:\n\n⚠️ If you're updating from before Grafana 13.1, Prometheus Azure/SigV4 authentication and the Zipkin core plugin were removed from Grafana core. Review the upstream notes if you use those integrations.\n\nGrafana 13.2.2 includes security fixes for CVE-2026-15815, CVE-2026-76154, and CVE-2026-79656.\n\nThis release also fixes dashboard import query variable refresh settings and folder rename UID collisions during provisioning sync.\n\nFull release notes can be found at https://github.com/grafana/grafana/releases/tag/v13.2.2"
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: "admin"
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/grafana/icon.svg
