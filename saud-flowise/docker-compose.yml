@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-flowise_web_1
+      APP_PORT: 3000
+  web:
+    image: flowiseai/flowise:3.1.4@sha256:3922767afb52a5777759fd8b28a3c9eee864daea96018a791f2429eae2a76571
+    user: "1000:1000"
+    restart: on-failure
+    environment:
+      PORT: '3000'
+      DATABASE_PATH: /home/node/.flowise
+      SECRETKEY_PATH: /home/node/.flowise
+      LOG_PATH: /home/node/.flowise/logs
+      BLOB_STORAGE_PATH: /home/node/.flowise/storage
+      DISABLE_FLOWISE_TELEMETRY: 'true'
+    volumes:
+    - ${APP_DATA_DIR}/data/flowise:/home/node/.flowise
