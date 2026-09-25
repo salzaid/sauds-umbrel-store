@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-netdata
+name: Netdata
+tagline: Per-second health and performance monitoring
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/netdata.svg
+category: developer
+version: "2.11.1"
+port: 5402
+description: |
+  Netdata collects per-second metrics for CPU, memory, disks, network, containers and GPU on your Umbrel and shows them in live dashboards.
+
+  Cloud features are optional and disabled by default.
+developer: Netdata Inc.
+website: https://www.netdata.cloud
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/netdata/netdata
+support: https://github.com/netdata/netdata/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
