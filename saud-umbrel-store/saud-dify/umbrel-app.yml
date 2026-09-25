@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-dify
+disabled: true
+name: Dify
+tagline: LLM app platform (not packaged here, see description)
+icon: https://raw.githubusercontent.com/langgenius/dify/d86435ee1e69b5badef832baf785863ea99bfbd7/web/public/logo/logo.svg
+category: ai
+version: "1.17.1"
+port: 5406
+description: |
+  Dify 1.17 needs about ten cooperating containers (API, worker, beat, web, sandbox, plugin daemon, SSRF proxy, nginx, vector store, database, cache) with hard-coded service names and many env files. That cannot be packaged reliably as an Umbrel app without testing on hardware.
+
+  This entry is disabled. Run Dify with its own docker compose files, for example as a Portainer stack, or use Flowise from this store.
+developer: LangGenius
+website: https://dify.ai
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/langgenius/dify
+support: https://github.com/langgenius/dify/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
