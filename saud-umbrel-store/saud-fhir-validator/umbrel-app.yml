@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-fhir-validator
+name: FHIR Validator
+tagline: Validate FHIR resources against profiles and implementation guides
+icon: https://raw.githubusercontent.com/hapifhir/org.hl7.fhir.validator-wrapper/d4805202a3/src/jvmMain/resources/static-content/images/fhir-logo.png
+category: developer
+version: "1.0.84"
+port: 5423
+description: |
+  The official HL7 FHIR validator with a web interface. Paste or upload a resource, pick the FHIR version and any implementation guide, and see errors and warnings.
+
+  Implementation guides are downloaded from packages.fhir.org when first used.
+developer: HL7 International
+website: https://validator.fhir.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/hapifhir/org.hl7.fhir.validator-wrapper
+support: https://github.com/hapifhir/org.hl7.fhir.validator-wrapper/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
