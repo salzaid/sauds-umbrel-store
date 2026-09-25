@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-fhir-validator_web_1
+      APP_PORT: 3500
+  web:
+    image: markiantorno/validator-wrapper:1.0.84@sha256:06061a298a6740e4c6d17dd7df13c4ae73619cccd6e798ac554a2bda660c730b
+    restart: on-failure
+    mem_limit: 3g
