@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-pgadmin
+name: pgAdmin
+tagline: Full PostgreSQL administration in the browser
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/pgadmin.svg
+category: developer
+version: "9.18"
+port: 5413
+description: |
+  pgAdmin 4 manages PostgreSQL servers, including saud-postgresql_db_1 from this store.
+
+  Log in with admin@example.com and the password shown in umbrelOS.
+developer: pgAdmin Development Team
+website: https://www.pgadmin.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/pgadmin-org/pgadmin4
+support: https://github.com/pgadmin-org/pgadmin4/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: "admin@example.com"
+defaultPassword: ""
+deterministicPassword: true
