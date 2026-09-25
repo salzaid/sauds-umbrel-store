@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-hapi-fhir_server_1
+      APP_PORT: 8080
+  server:
+    image: hapiproject/hapi:v8.12.0-1@sha256:d7f38d3676900b07e8a7d3500426eaf8d90ea9ced9a6726416f080f68e230fb0
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 3g
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://saud-hapi-fhir_db_1:5432/hapi
+      SPRING_DATASOURCE_USERNAME: hapi
+      SPRING_DATASOURCE_PASSWORD: ${APP_PASSWORD}
+      SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
+      HAPI_FHIR_FHIR_VERSION: R4
+      HAPI_FHIR_SERVER_ADDRESS: http://${DEVICE_DOMAIN_NAME}:5422/fhir
+  db:
+    image: postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: hapi
+      POSTGRES_USER: hapi
+      POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U hapi -d hapi
+      interval: 10s
+      timeout: 5s
+      retries: 10
