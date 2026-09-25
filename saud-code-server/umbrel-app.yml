@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: saud-code-server
+storage:
+  dataRoot: data
+category: developer
+name: code-server
+version: "4.138.0"
+tagline: Install from the official Umbrel App Store (Run VS Code on your Umbrel)
+description: |
+  This is a disabled mirror of the official `code-server` app. Install code-server from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5443 so it cannot collide with the official app.
+
+  Run VS Code on your Umbrel and access it in the browser so you can code on any device with a consistent development environment. This way you can use your Umbrel not only to code from any device, anywhere, but to also speed up tests, compilations, downloads, and more.
+
+  By running all intensive tasks run on your Umbrel, preserve battery life of your devices when you're on the go.
+releaseNotes: "This release updates the underlying VS Code editor to 1.138.0.\n\nIt also fixes port-proxy URL rewriting so original paths, query parameters, and fragments are preserved.\n\nFull release notes are available at https://github.com/coder/code-server/releases/tag/v4.138.0"
+developer: Coder
+website: https://coder.com
+dependencies: []
+repo: https://github.com/cdr/code-server
+support: https://github.com/cdr/code-server/discussions
+port: 5443
+gallery: []
+path: ""
+defaultUsername: ""
+deterministicPassword: true
+torOnly: false
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/code-server/icon.svg
