@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: saud-nocodb
+storage:
+  dataRoot: data
+category: files
+name: NocoDB
+version: "2026.09.0-patch.1"
+tagline: Install from the official Umbrel App Store (No-code platform for database management, self-hosted Airtable alternative)
+description: "This is a disabled mirror of the official `nocodb` app. Install NocoDB from the official Umbrel App Store instead: it is maintained, updated and tested there.\n\nThe mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5448 so it cannot collide with the official app.\n\nNocoDB is an open-source platform that converts databases into smart, collaborative spreadsheets. It enables users to create no-code applications on top of databases like MySQL, PostgreSQL, SQLite, and even Airtable-like interfaces on existing data structures. \n\nFeatures:\n\U0001F4CA Smart Spreadsheet Interface: A rich, intuitive UI with features like Sort, Filter, Hide, and specialized column types (Attachment, JSON, Rating, Formula).\n\n\U0001F916 Native MCP Server Support: Enable AI agents (like Claude or local LLMs) to securely interact with your database records using the Model Context Protocol.\n\n⚡ REST API: It automatically generates REST\
+  \ APIs for each table, so users can integrate with other apps, create automations, or develop custom workflows.\n\n\U0001F504 Webhooks: Trigger workflows and integrate with third-party apps like Slack, Discord, and Email directly from your database events.\n\n\U0001F50C Connect to Any Database: You can easily connect to new or existing SQL databases (PostgreSQL, MySQL, SQLite) and manage them visually.\n\n\U0001F3A8 Customizable Views: Switch between Grid, Gallery, Kanban, and Form views to visualize your data exactly how you need it.\n\n\U0001F6E1️ Permissions & Roles: NocoDB supports user roles, access controls, and permissions, making it suitable for team use.\n"
+releaseNotes: "This update adds support for new storage management and configuration options being introduced with umbrelOS 2.0.\n\nPrevious NocoDB 2026.09.0 release notes:\n\nNew features and improvements in this release:\n  - Adds NocoDB to Claude Connectors and expands the MCP server with workspace-wide tools for tables, views, workflows, interfaces, permissions, Record-Level Security, imports, exports, and more\n  - Adds rich text editing for workflow email bodies on supported paid plans\n  - Improves Interface buttons, List View drag-and-drop and nesting, inline linked-record field creation, workflow date helpers, Kanban performance, large Excel exports, and document checklist progress\n  - Fixes nested lookups, Current User rollups, table sync, workflow record node validation, interface record sheets, interface navigation and builder behavior, document checklists, integration permissions, MCP access and OAuth, external-source messages, and folder placement\n  - Strengthens self-hosted\
+  \ behavior around Community feature visibility, disabled and expired API tokens, hidden fields in shared views, comment scoping, table visibility, unlicensed paid field types, and PostgreSQL permission error messages\n  - The planned API datetime precision change remains upcoming; integrations should prepare for millisecond timestamps in future API responses, webhooks, and exports\n\n\nFull release notes can be found at https://github.com/nocodb/nocodb/releases/tag/2026.09.0"
+developer: NocoDB Inc.
+website: https://nocodb.com
+dependencies: []
+repo: https://github.com/nocodb/nocodb
+support: https://github.com/nocodb/nocodb/issues
+port: 5448
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/nocodb/icon.svg
