@@ -1,0 +1,83 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-openmrs_gateway_1
+      APP_PORT: 80
+      PROXY_AUTH_ADD: "false"
+  gateway:
+    image: openmrs/openmrs-reference-application-3-gateway:3.7.1@sha256:49070abbcda8aeced46f78ce0c1559236a2ba45bc624fe8485a59220cbd159a2
+    restart: on-failure
+    depends_on:
+    - frontend
+    - backend
+    networks:
+    - openmrs
+  frontend:
+    image: openmrs/openmrs-reference-application-3-frontend:3.7.1@sha256:f6b1f8443ab27a6b1c3944c5a948f2e0cdfea3701dcfd59316677fef28a58f8d
+    restart: on-failure
+    environment:
+      SPA_PATH: /openmrs/spa
+      API_URL: /openmrs
+      SPA_CONFIG_URLS: /openmrs/spa/config-core_demo.json
+    networks:
+    - openmrs
+  perms:
+    image: busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e
+    user: "0:0"
+    restart: 'no'
+    entrypoint:
+    - chown
+    - -R
+    - 1001:1001
+    - /openmrs/data
+    volumes:
+    - ${APP_DATA_DIR}/data/openmrs:/openmrs/data
+    networks:
+    - openmrs
+  backend:
+    image: openmrs/openmrs-reference-application-3-backend:3.7.1@sha256:929cfe5dca5f221460e0f4a57abb9294614df5f74fbb3bb865e01b8dfe7a985b
+    restart: on-failure
+    depends_on:
+      perms:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+    environment:
+      OMRS_CONFIG_MODULE_WEB_ADMIN: 'true'
+      OMRS_CONFIG_AUTO_UPDATE_DATABASE: 'true'
+      OMRS_CONFIG_CREATE_TABLES: 'true'
+      OMRS_CONFIG_CONNECTION_SERVER: db
+      OMRS_CONFIG_CONNECTION_DATABASE: openmrs
+      OMRS_CONFIG_CONNECTION_USERNAME: openmrs
+      OMRS_CONFIG_CONNECTION_PASSWORD: ${APP_PASSWORD}
+    volumes:
+    - ${APP_DATA_DIR}/data/openmrs:/openmrs/data
+    networks:
+    - openmrs
+  db:
+    image: mariadb:10.11.19@sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: openmrs
+      MARIADB_USER: openmrs
+      MARIADB_PASSWORD: ${APP_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD
+      - healthcheck.sh
+      - --connect
+      - --innodb_initialized
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    networks:
+    - openmrs
+networks:
+  openmrs: {}
