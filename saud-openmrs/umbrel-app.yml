@@ -1,0 +1,26 @@
+manifestVersion: 1.1
+id: saud-openmrs
+name: OpenMRS 3
+tagline: OpenMRS 3 reference application with demo data
+icon: https://raw.githubusercontent.com/openmrs/openmrs-esm-core/196e5d3a91/packages/framework/esm-styleguide/src/logo/openmrs-logo-icon.svg
+category: developer
+version: "3.7.1"
+port: 5426
+description: |
+  The OpenMRS 3 reference application (backend, O3 frontend and gateway) with MariaDB. It includes demo patients and is meant for training.
+
+  The first start builds the database and can take 10 to 20 minutes. Log in with admin / Admin123 and change the password.
+
+  The containers run on a private network because the upstream gateway uses the fixed host names frontend and backend.
+developer: OpenMRS Inc.
+website: https://openmrs.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/openmrs/openmrs-distro-referenceapplication
+support: https://talk.openmrs.org
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: "/openmrs/spa/home"
+defaultUsername: "admin"
+defaultPassword: "Admin123"
