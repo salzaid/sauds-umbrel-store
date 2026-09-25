@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-flowise
+name: Flowise
+tagline: Build LLM agents and RAG flows visually
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/flowise.svg
+category: ai
+version: "3.1.4"
+port: 5405
+description: |
+  Flowise is a drag-and-drop builder for LLM chains, agents and retrieval pipelines. Point it at Lemonade (http://saud-lemonade_server_1:13305/api/v1) or Qdrant (http://saud-qdrant_web_1:6333) from this store.
+
+  Create the admin account on first launch.
+developer: FlowiseAI
+website: https://flowiseai.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/FlowiseAI/Flowise
+support: https://github.com/FlowiseAI/Flowise/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
