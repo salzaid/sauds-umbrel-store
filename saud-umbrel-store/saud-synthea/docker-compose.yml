@@ -1,0 +1,50 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-synthea_files_1
+      APP_PORT: 80
+  fetch:
+    image: curlimages/curl:8.22.0@sha256:58adaa4e8dca9c988bae2aba4ab3434a0bb2da16bbe3f92dec39ec7785166777
+    user: "1000:1000"
+    restart: 'no'
+    volumes:
+    - ${APP_DATA_DIR}/data/jar:/jar
+    entrypoint:
+    - sh
+    - -c
+    - J=/jar/synthea-4.0.0.jar; if [ ! -f $$J ]; then curl -fL -o $$J.tmp https://github.com/synthetichealth/synthea/releases/download/v4.0.0/synthea-with-dependencies.jar && echo 'ed43c20ad40ba5c3bc724503a5af032715fe3c491620b766148e7c2361e6ecc1  '$$J.tmp | sha256sum -c - && mv $$J.tmp $$J; fi
+  generator:
+    image: eclipse-temurin:21-jre@sha256:49e21e16e3c86eb7816a44a67549910ed090fbeb40c29c525d58bf5e02e91b0f
+    user: "1000:1000"
+    restart: 'no'
+    depends_on:
+      fetch:
+        condition: service_completed_successfully
+    working_dir: /output
+    volumes:
+    - ${APP_DATA_DIR}/data/jar:/jar:ro
+    - ${APP_DATA_DIR}/data/output:/output
+    command:
+    - java
+    - -Xmx2g
+    - -jar
+    - /jar/synthea-4.0.0.jar
+    - -p
+    - '100'
+    - --exporter.baseDirectory
+    - /output
+    - --exporter.fhir.export
+    - 'true'
+    - --exporter.csv.export
+    - 'true'
+  files:
+    image: filebrowser/filebrowser:v2.63.23@sha256:a469ea076d4a1b4b1d86a41d130f2f536cd9da996a2b1fb39c0d7635f9d89b9a
+    user: "1000:1000"
+    restart: on-failure
+    environment:
+      FB_NOAUTH: 'true'
+    volumes:
+    - ${APP_DATA_DIR}/data/output:/srv
+    - ${APP_DATA_DIR}/data/fb/database:/database
+    - ${APP_DATA_DIR}/data/fb/config:/config
