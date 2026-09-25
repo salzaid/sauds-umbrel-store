@@ -1,0 +1,26 @@
+manifestVersion: 1.1
+id: saud-orthanc-lab-basic
+name: Orthanc Lab
+tagline: Lightweight DICOM server for teaching and testing
+icon: https://avatars.githubusercontent.com/orthanc-team?s=256
+category: media
+version: "26.9.1"
+port: 5414
+description: |
+  Orthanc with the Orthanc Explorer 2 interface and SQLite storage. Good for a first look at DICOM routing.
+
+  DICOM C-STORE: AE title SAUDLAB, port 14242 on your Umbrel.
+
+  For de-identified or synthetic studies only. Not a clinical PACS.
+developer: Orthanc Team
+website: https://www.orthanc-server.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/orthanc-team/orthanc-builder
+support: https://discourse.orthanc-server.org
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
