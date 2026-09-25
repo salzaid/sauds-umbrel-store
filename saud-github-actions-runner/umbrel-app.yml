@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-github-actions-runner
+disabled: true
+name: GitHub Actions Runner
+tagline: Self-hosted GitHub Actions runner (disabled until configured)
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/github.svg
+category: developer
+version: "2.337.0"
+port: 5432
+description: |
+  A self-hosted GitHub Actions runner. It has no web interface and needs a repository URL and a registration token, so it is disabled by default.
+
+  To use it: fork the store, fill in RUNNER_REPO_URL and RUNNER_TOKEN in exports.sh, remove disabled: true, and push. The runner can control Docker on your Umbrel, so only connect repositories you trust.
+developer: myoung34
+website: https://github.com/myoung34/docker-github-actions-runner
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/myoung34/docker-github-actions-runner
+support: https://github.com/myoung34/docker-github-actions-runner/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
