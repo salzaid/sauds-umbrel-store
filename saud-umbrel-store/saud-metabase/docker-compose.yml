@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-metabase_web_1
+      APP_PORT: 3000
+  web:
+    image: metabase/metabase:v0.63.18.2@sha256:ca6d63cbedfd0a66a3c0239ac79a9df5f7ef3f2455027ab97e3bb26cbf281999
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: '5432'
+      MB_DB_USER: metabase
+      MB_DB_PASS: ${APP_PASSWORD}
+      MB_DB_HOST: saud-metabase_db_1
+      MB_ANON_TRACKING_ENABLED: 'false'
+      MB_CHECK_FOR_UPDATES: 'false'
+      JAVA_TIMEZONE: Asia/Kuwait
+  db:
+    image: postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: metabase
+      POSTGRES_USER: metabase
+      POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U metabase -d metabase
+      interval: 10s
+      timeout: 5s
+      retries: 10
