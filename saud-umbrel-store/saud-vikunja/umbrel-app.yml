@@ -1,0 +1,37 @@
+manifestVersion: 1
+id: saud-vikunja
+storage:
+  dataRoot: data
+category: files
+name: Vikunja
+version: "2.6.0-patch.1"
+tagline: Install from the official Umbrel App Store (The open-source, self-hostable to-do app)
+description: |
+  This is a disabled mirror of the official `vikunja` app. Install Vikunja from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5439 so it cannot collide with the official app.
+
+  Think of Vikunja like the notebook you have with all your things to keep track of. But with superpowers.
+
+  🗂️ Stay Organized
+  Organize all of your tasks in projects. Create subprojects organize everything hierarchical and keep related stuff grouped together.
+
+  👥 Collaborate With Peers
+  Vikunja lets you easily share a project with another user or a whole team! Assignments show who's working on what.
+
+  🛠️ Use It How You Need It
+  You can view your tasks in the classic list view - or in a Gantt Chart, or Table view, or Kanban Board. Whatever you need!
+releaseNotes: "This update adds support for new storage management and configuration options being introduced with umbrelOS 2.0.\n\nPrevious Vikunja 2.6.0 release notes:\n\n\U0001F6A8 This release includes eighteen security fixes. Upgrading is highly recommended.\n\nKey highlights in this release:\n  - Import tasks and projects from Planka\n  - Preview image, audio, and video attachments directly in Vikunja\n  - Safer email changes that keep the old address active until the new one is confirmed\n  - Fixes and performance improvements for CalDAV, imports, notifications, task permissions, and project/task queries\n\n\nFull release notes are available at https://vikunja.io/changelog/vikunja-2.6.0-was-released/"
+developer: Vikunja
+website: https://vikunja.io/
+dependencies: []
+repo: https://github.com/go-vikunja/vikunja
+support: https://community.vikunja.io/
+port: 5439
+gallery: []
+path: ""
+deterministicPassword: false
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/vikunja/icon.svg
