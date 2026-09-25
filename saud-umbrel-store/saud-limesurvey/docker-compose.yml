@@ -1,0 +1,64 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-limesurvey_web_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+  init:
+    image: martialblog/limesurvey:7.1.2-260917-apache@sha256:cdc8ff1c39d006e85379bd873686a3245f35da8def40f26dd673e27437226a31
+    user: "0:0"
+    restart: 'no'
+    entrypoint:
+    - chown
+    - -R
+    - www-data:www-data
+    - /var/www/html/upload/surveys
+    volumes:
+    - ${APP_DATA_DIR}/data/surveys:/var/www/html/upload/surveys
+  web:
+    image: martialblog/limesurvey:7.1.2-260917-apache@sha256:cdc8ff1c39d006e85379bd873686a3245f35da8def40f26dd673e27437226a31
+    restart: on-failure
+    depends_on:
+      init:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+    environment:
+      LISTEN_PORT: '8080'
+      DB_TYPE: mysql
+      DB_HOST: saud-limesurvey_db_1
+      DB_PORT: '3306'
+      DB_NAME: limesurvey
+      DB_USERNAME: limesurvey
+      DB_PASSWORD: ${APP_PASSWORD}
+      ADMIN_USER: admin
+      ADMIN_NAME: Administrator
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_PASSWORD: ${APP_PASSWORD}
+      PUBLIC_URL: http://${DEVICE_DOMAIN_NAME}:5427
+      URL_FORMAT: path
+    volumes:
+    - ${APP_DATA_DIR}/data/surveys:/var/www/html/upload/surveys
+  db:
+    image: mariadb:11.8.9@sha256:79d59758afc91b89b120b0a8904d637f5a3b3e1c4900f29b740d6d46c72fef68
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: limesurvey
+      MARIADB_USER: limesurvey
+      MARIADB_PASSWORD: ${APP_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD
+      - healthcheck.sh
+      - --connect
+      - --innodb_initialized
+      interval: 10s
+      timeout: 5s
+      retries: 20
