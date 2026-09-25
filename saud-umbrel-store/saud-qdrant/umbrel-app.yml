@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-qdrant
+name: Qdrant
+tagline: Vector database for retrieval-augmented generation
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/qdrant.svg
+category: ai
+version: "1.19.1"
+port: 5407
+description: |
+  Qdrant stores embeddings and runs fast similarity search. The web dashboard is at /dashboard.
+
+  The API key is the password shown for this app in umbrelOS. Other apps connect to http://saud-qdrant_web_1:6333 with header api-key.
+developer: Qdrant
+website: https://qdrant.tech
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/qdrant/qdrant
+support: https://github.com/qdrant/qdrant/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: "/dashboard"
+defaultUsername: ""
+defaultPassword: ""
+deterministicPassword: true
