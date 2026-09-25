@@ -1,0 +1,21 @@
+# Copy to .github/workflows/umbrel-store-audit.yml in your community store repo.
+# Blocks merges to the default branch (the only branch umbrelOS syncs) when the audit finds ERRORs.
+# The audit also runs `docker compose config` for every app the way umbreld does at runtime
+# (app_proxy removed, umbrelOS common fragment merged), because Docker is present on ubuntu-latest.
+name: umbrel-store-audit
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      # Keep audit_umbrel_store.py and official_ports.json under .tools/ in your repo
+      - name: Structural + icon + sync + compose audit
+        run: python3 .tools/audit_umbrel_store.py . --online --remote "https://github.com/${{ github.repository }}" --official-ports .tools/official_ports.json --format md | tee -a "$GITHUB_STEP_SUMMARY"; exit ${PIPESTATUS[0]}
