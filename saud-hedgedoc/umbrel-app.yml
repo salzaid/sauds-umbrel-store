@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-hedgedoc
+name: HedgeDoc
+tagline: Collaborative Markdown notes
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/hedgedoc.svg
+category: files
+version: "1.12.0"
+port: 5420
+description: |
+  HedgeDoc is a real-time collaborative Markdown editor for meeting notes, protocols and teaching material.
+
+  Anonymous notes are off. Register with an email and password on first use. The app must be opened at http://umbrel.local:5420.
+developer: HedgeDoc
+website: https://hedgedoc.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/hedgedoc/hedgedoc
+support: https://github.com/hedgedoc/hedgedoc/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
