@@ -1,0 +1,23 @@
+manifestVersion: 1.1
+id: saud-h5p
+disabled: true
+name: H5P
+tagline: Interactive content (use the H5P built into Moodle)
+icon: https://avatars.githubusercontent.com/h5p?s=256
+category: social
+version: "1.0.0"
+port: 5429
+description: |
+  H5P has no maintained stand-alone server. It is built into Moodle 4 and later, so this entry is disabled. Install Moodle from this store and use Site administration > H5P.
+developer: H5P Group
+website: https://h5p.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/h5p
+support: https://h5p.org/forum
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
