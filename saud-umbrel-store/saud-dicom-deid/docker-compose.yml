@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-dicom-deid_server_1
+      APP_PORT: 8042
+  server:
+    image: orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2
+    restart: on-failure
+    ports:
+    - "14246:4242"
+    environment:
+      ORTHANC__NAME: DICOM De-identifier
+      ORTHANC__DICOM_AET: SAUDDEID
+      ORTHANC__DICOM_PORT: '4242'
+      ORTHANC__AUTHENTICATION_ENABLED: 'false'
+      ORTHANC__REMOTE_ACCESS_ALLOWED: 'true'
+      ORTHANC__DICOM_ALWAYS_ALLOW_STORE: 'true'
+      ORTHANC__DICOM_CHECK_CALLED_AET: 'false'
+      ORTHANC__STORAGE_DIRECTORY: /var/lib/orthanc/db
+      VERBOSE_STARTUP: 'true'
+      ORTHANC__LUA_SCRIPTS: '["/etc/orthanc/deid.lua"]'
+      ORTHANC__STABLE_AGE: '30'
+      ORTHANC__OVERWRITE_INSTANCES: 'true'
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/orthanc/db
+    configs:
+    - source: deid_lua
+      target: /etc/orthanc/deid.lua
+configs:
+  deid_lua:
+    content: |
+      -- Auto de-identification for saud-dicom-deid (Orthanc Lua).
+      -- When a study becomes stable, anonymize it with the DICOM PS3.15 basic profile,
+      -- keep the anonymized copy, and delete the identifiable original.
+      function OnStableStudy(studyId, tags, metadata)
+        if metadata['AnonymizedFrom'] ~= nil then
+          return
+        end
+        local body = {}
+        body['Force'] = true
+        body['KeepPrivateTags'] = false
+        body['DicomVersion'] = '2023b'
+        body['Replace'] = {}
+        body['Replace']['PatientName'] = 'DEID^' .. string.sub(studyId, 1, 8)
+        body['Replace']['PatientID'] = 'DEID-' .. string.sub(studyId, 1, 8)
+        local result = ParseJson(RestApiPost('/studies/' .. studyId .. '/anonymize', DumpJson(body, true)))
+        if result ~= nil and result['ID'] ~= nil then
+          RestApiDelete('/studies/' .. studyId)
+          print('saud-dicom-deid: anonymized ' .. studyId .. ' -> ' .. result['ID'])
+        end
+      end
