@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: saud-mattermost
+storage:
+  dataRoot: data
+name: Mattermost
+tagline: Install from the official Umbrel App Store (Team Chat, Open Source, Self-Hosted)
+category: social
+version: "11.11.0"
+port: 5442
+description: |
+  This is a disabled mirror of the official `mattermost` app. Install Mattermost from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5442 so it cannot collide with the official app.
+
+  🚉 Mattermost is an open-source platform designed for secure collaboration throughout the software development lifecycle.
+
+  💬 It serves as a team messaging application that emphasizes developer productivity and the benefits of open-source software.
+
+  💾 Mattermost offers a self-hosted alternative to proprietary SaaS messaging services such as Slack and Microsoft Teams.
+
+  Note: Mattermost can be used locally within your network. However, if you want others outside your local network to access your server, you'll need to make it accessible on the public internet. If you have a domain name, you can set this up using the Cloudflare Tunnel or Nginx Proxy Manager apps in the Umbrel Apps Store.
+developer: Mattermost
+website: https://mattermost.com
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+repo: https://github.com/mattermost/mattermost
+support: https://forum.mattermost.com/
+gallery: []
+defaultUsername: ""
+defaultPassword: ""
+dependencies: []
+releaseNotes: "Mattermost 11.11.0 adds recurring scheduled posts, channel browsing improvements, and updated bundled Boards, GitHub, Jira, Calls, and Agents plugins.\n\nThis release also improves administration and compliance workflows, including Data Spillage Handling, token audit logging, system bot recovery, policy simulation, and additional warnings for insecure production settings.\n\nMattermost includes no-downtime database schema changes for scheduled posts, scheduled recaps, and channel type support. It also carries forward the FIPS-only database password length caveat; standard Umbrel installs are unaffected.\n\nFull release notes can be found at https://docs.mattermost.com/product-overview/mattermost-v11-changelog.html#release-v11-11-feature-release"
+path: ""
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/mattermost/icon.svg
