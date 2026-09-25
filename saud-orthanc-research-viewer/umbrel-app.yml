@@ -1,0 +1,26 @@
+manifestVersion: 1.1
+id: saud-orthanc-research-viewer
+name: Orthanc Research Viewer
+tagline: DICOM server with DICOMweb and the Stone Web Viewer
+icon: https://avatars.githubusercontent.com/orthanc-team?s=256
+category: media
+version: "26.9.1"
+port: 5415
+description: |
+  Orthanc with DICOMweb and the Stone Web Viewer enabled, for viewing de-identified research studies in the browser.
+
+  DICOM C-STORE: AE title SAUDVIEW, port 14243 on your Umbrel.
+
+  For de-identified or synthetic studies only. Not a clinical PACS.
+developer: Orthanc Team
+website: https://www.orthanc-server.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/orthanc-team/orthanc-builder
+support: https://discourse.orthanc-server.org
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
