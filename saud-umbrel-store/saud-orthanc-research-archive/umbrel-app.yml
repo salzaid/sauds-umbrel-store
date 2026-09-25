@@ -1,0 +1,26 @@
+manifestVersion: 1.1
+id: saud-orthanc-research-archive
+name: Orthanc Research Archive
+tagline: Orthanc with a PostgreSQL index for larger research archives
+icon: https://avatars.githubusercontent.com/orthanc-team?s=256
+category: media
+version: "26.9.1"
+port: 5416
+description: |
+  Orthanc with its index in PostgreSQL (files stay on disk), plus DICOMweb and the Stone Web Viewer. Suited to larger de-identified collections.
+
+  DICOM C-STORE: AE title SAUDARCH, port 14244 on your Umbrel.
+
+  For de-identified or synthetic studies only. Not a clinical PACS.
+developer: Orthanc Team
+website: https://www.orthanc-server.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/orthanc-team/orthanc-builder
+support: https://discourse.orthanc-server.org
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
