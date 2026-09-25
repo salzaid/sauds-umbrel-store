@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-oie
+name: Open Integration Engine
+tagline: HL7 v2 and FHIR integration engine (open fork of Mirth Connect)
+icon: https://raw.githubusercontent.com/OpenIntegrationEngine/engine/03eefcfe06/server/public_html/images/oie_logo_bottom_text.svg
+category: developer
+version: "4.5.2"
+port: 5421
+description: |
+  Open Integration Engine routes and transforms HL7 v2, FHIR, DICOM and other healthcare messages.
+
+  The browser page links to the Administrator client. Point the client at https://umbrel.local:18443 and log in with admin / admin, then change the password. A sample MLLP listener port 6661 is published for test channels.
+developer: Open Integration Engine
+website: https://openintegrationengine.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/OpenIntegrationEngine/engine
+support: https://github.com/OpenIntegrationEngine/engine/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: "admin"
