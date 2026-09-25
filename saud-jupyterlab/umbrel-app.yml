@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: saud-jupyterlab
+storage:
+  dataRoot: data
+category: developer
+name: JupyterLab
+version: "v4.6.3-patch.2"
+tagline: Install from the official Umbrel App Store (Next-generation web interface for interactive computing and data science)
+description: "This is a disabled mirror of the official `jupyterlab` app. Install JupyterLab from the official Umbrel App Store instead: it is maintained, updated and tested there.\n\nThe mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5437 so it cannot collide with the official app.\n\nJupyterLab is a next-generation web-based user interface for Project Jupyter. \n\nIt enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. You can arrange multiple documents and activities side by side in the work area using tabs and splitters.\n\nKey features and workflows include:\n  - Code Consoles for interactive code execution and linking to a notebook kernel.\n  - Kernel-backed documents that allow code in any text file (Markdown, Python, LaTeX) to be run interactively.\n  - Mirrored cell outputs for simple dashboards.\n\
+  \  - Multiple views of documents with different editors or viewers (e.g., live preview of Markdown or CSV).\n  - A unified model for viewing and handling data formats (images, CSV, JSON, PDF, Vega, etc.).\n  - Customizable keyboard shortcuts and an extensible architecture.\n\n\nJupyterLab uses the same notebook document format as the classic Jupyter Notebook.\n"
+permissions:
+- GPU
+releaseNotes: "This update adds support for new storage management and configuration options being introduced with umbrelOS 2.0.\n\nPrevious JupyterLab v4.6.3-patch.1 release notes:\n\nAdds GPU access so notebooks can use CUDA or ROCm frameworks when a supported GPU is available. Using an AMD or NVIDIA GPU requires umbrelOS 2.0 Beta or later."
+developer: jupyterlab
+website: https://jupyterlab.readthedocs.io/en/latest/
+repo: https://github.com/jupyterlab/jupyterlab
+support: https://github.com/jupyterlab/jupyterlab/issues
+port: 5437
+dependencies: []
+gallery: []
+path: ""
+deterministicPassword: true
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/jupyterlab/icon.svg
