@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-oie_engine_1
+      APP_PORT: 8443
+      APP_PROTOCOL: https
+      PROXY_AUTH_ADD: "false"
+  init:
+    image: openintegrationengine/engine:4.5.2-ubuntu-jre@sha256:90f507dd5375979209e53ba2a4d7121ccd6b4f6ddd48332dccfdce303fd0f5d1
+    user: "0:0"
+    restart: 'no'
+    entrypoint:
+    - chown
+    - -R
+    - engine:engine
+    - /opt/engine/appdata
+    - /opt/engine/custom-extensions
+    volumes:
+    - ${APP_DATA_DIR}/data/appdata:/opt/engine/appdata
+    - ${APP_DATA_DIR}/data/extensions:/opt/engine/custom-extensions
+  engine:
+    image: openintegrationengine/engine:4.5.2-ubuntu-jre@sha256:90f507dd5375979209e53ba2a4d7121ccd6b4f6ddd48332dccfdce303fd0f5d1
+    restart: on-failure
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    environment:
+      VMOPTIONS: -Xmx768m
+    ports:
+    - "18443:8443"
+    - "6661:6661"
+    volumes:
+    - ${APP_DATA_DIR}/data/appdata:/opt/engine/appdata
+    - ${APP_DATA_DIR}/data/extensions:/opt/engine/custom-extensions
