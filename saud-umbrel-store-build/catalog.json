@@ -1,0 +1,774 @@
+[
+ {
+  "id": "saud-dozzle",
+  "name": "Dozzle",
+  "group": "Operations",
+  "port": 5401,
+  "status": "custom",
+  "version": "11.1.1",
+  "images": [
+   "amir20/dozzle:v11.1.1@sha256:c90494cbc3a9ca959634b89fdb3fdecbcbae1f690d7a567d0d356c6fda1d957c"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/dozzle.svg",
+  "note": "Real-time log viewer for your Docker containers"
+ },
+ {
+  "id": "saud-netdata",
+  "name": "Netdata",
+  "group": "Operations",
+  "port": 5402,
+  "status": "custom",
+  "version": "2.11.1",
+  "images": [
+   "netdata/netdata:v2.11.1@sha256:21970e176031fdb9469503534d01b4dc2fe2c36d369a5a4be74b6ec5c8b7a5c3"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/netdata.svg",
+  "note": "Per-second health and performance monitoring"
+ },
+ {
+  "id": "saud-backrest",
+  "name": "Backrest",
+  "group": "Operations",
+  "port": 5403,
+  "status": "custom",
+  "version": "1.14.1",
+  "images": [
+   "garethgeorge/backrest:v1.14.1@sha256:b852979754281026230cc69fb11428e6d57c9a97784ab4a444ffc7934c53a215"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/backrest.svg",
+  "note": "Web UI and scheduler for restic backups"
+ },
+ {
+  "id": "saud-lemonade",
+  "name": "Lemonade Server",
+  "group": "AI",
+  "port": 5404,
+  "status": "custom",
+  "version": "2026.39.1",
+  "images": [
+   "ghcr.io/lemonade-sdk/lemonade-server:v2026.39.1@sha256:583130946a9f57dada3e42ac047c2b842d56e041bbb5e6d38422e38746ce49eb",
+   "ghcr.io/lemonade-sdk/lemonade-server:v2026.39.1@sha256:583130946a9f57dada3e42ac047c2b842d56e041bbb5e6d38422e38746ce49eb"
+  ],
+  "published": [],
+  "gpu": true,
+  "icon": "https://raw.githubusercontent.com/lemonade-sdk/lemonade/6deeb05f77/docs/assets/logo_512.png",
+  "note": "Local LLM server with an OpenAI-compatible API and AMD GPU acceleration"
+ },
+ {
+  "id": "saud-flowise",
+  "name": "Flowise",
+  "group": "AI",
+  "port": 5405,
+  "status": "custom",
+  "version": "3.1.4",
+  "images": [
+   "flowiseai/flowise:3.1.4@sha256:3922767afb52a5777759fd8b28a3c9eee864daea96018a791f2429eae2a76571"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/flowise.svg",
+  "note": "Build LLM agents and RAG flows visually"
+ },
+ {
+  "id": "saud-dify",
+  "name": "Dify",
+  "group": "AI",
+  "port": 5406,
+  "status": "disabled",
+  "version": "1.17.1",
+  "images": [
+   "busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/langgenius/dify/d86435ee1e69b5badef832baf785863ea99bfbd7/web/public/logo/logo.svg",
+  "note": "LLM app platform (not packaged here, see description)"
+ },
+ {
+  "id": "saud-qdrant",
+  "name": "Qdrant",
+  "group": "AI",
+  "port": 5407,
+  "status": "custom",
+  "version": "1.19.1",
+  "images": [
+   "qdrant/qdrant:v1.19.1@sha256:12364fe851b9f17356fc88189fc06d1b521262e04659ec7345975b00c9246a10"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/qdrant.svg",
+  "note": "Vector database for retrieval-augmented generation"
+ },
+ {
+  "id": "saud-litellm",
+  "name": "LiteLLM Proxy",
+  "group": "AI",
+  "port": 5408,
+  "status": "custom",
+  "version": "1.83.14",
+  "images": [
+   "litellm/litellm:v1.83.14-stable.patch.3@sha256:f12d528d4a05add56cb09e54c5126088f2edc6bdf3a2f943bcd3a32b08769da2",
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/BerriAI/litellm/c19ce71bcdad234ca87a7af10cee45375ce811a8/litellm/proxy/swagger/favicon.png",
+  "note": "One OpenAI-compatible gateway in front of all your model providers"
+ },
+ {
+  "id": "saud-postgresql",
+  "name": "PostgreSQL",
+  "group": "Analytics",
+  "port": 5409,
+  "status": "custom",
+  "version": "16.15",
+  "images": [
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54",
+   "sosedoff/pgweb:0.17.0@sha256:a5256d416e2e8b92d69a4459058e3eca33a9f075d8325491644411d0bc3bd70b"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/postgresql.svg",
+  "note": "Shared PostgreSQL 16 server with a web SQL console"
+ },
+ {
+  "id": "saud-metabase",
+  "name": "Metabase",
+  "group": "Analytics",
+  "port": 5410,
+  "status": "custom",
+  "version": "0.63.18.2",
+  "images": [
+   "metabase/metabase:v0.63.18.2@sha256:ca6d63cbedfd0a66a3c0239ac79a9df5f7ef3f2455027ab97e3bb26cbf281999",
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/metabase.svg",
+  "note": "Dashboards and questions on your registry data"
+ },
+ {
+  "id": "saud-superset",
+  "name": "Apache Superset",
+  "group": "Analytics",
+  "port": 5411,
+  "status": "custom",
+  "version": "6.1.0",
+  "images": [
+   "apache/superset:6.1.0@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88",
+   "apache/superset:6.1.0@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88",
+   "apache/superset:6.1.0@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/apache-superset.svg",
+  "note": "Open-source business intelligence and data exploration"
+ },
+ {
+  "id": "saud-duckdb",
+  "name": "DuckDB Lab",
+  "group": "Analytics",
+  "port": 5412,
+  "status": "custom",
+  "version": "2026-09-21",
+  "images": [
+   "quay.io/jupyter/scipy-notebook:2026-09-21@sha256:c88fd047a38689b1fe621309eaa91d1f0637c5c1ef3bccb7509cfa92d2b508ca"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/duckdb/duckdb/ca15f79c32/logo/DuckDB_Logo-stacked.svg",
+  "note": "JupyterLab with DuckDB for fast local analytics"
+ },
+ {
+  "id": "saud-pgadmin",
+  "name": "pgAdmin",
+  "group": "Analytics",
+  "port": 5413,
+  "status": "custom",
+  "version": "9.18",
+  "images": [
+   "busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+   "dpage/pgadmin4:9.18.0@sha256:c332c5f6dfba995d9ebc4af261d93506d6876085d712eaaa3defc8dd1a3f26de"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/pgadmin.svg",
+  "note": "Full PostgreSQL administration in the browser"
+ },
+ {
+  "id": "saud-orthanc-lab-basic",
+  "name": "Orthanc Lab",
+  "group": "Imaging",
+  "port": 5414,
+  "status": "custom",
+  "version": "26.9.1",
+  "images": [
+   "orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2"
+  ],
+  "published": [
+   14242
+  ],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/orthanc-team?s=256",
+  "note": "Lightweight DICOM server for teaching and testing"
+ },
+ {
+  "id": "saud-orthanc-research-viewer",
+  "name": "Orthanc Research Viewer",
+  "group": "Imaging",
+  "port": 5415,
+  "status": "custom",
+  "version": "26.9.1",
+  "images": [
+   "orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2"
+  ],
+  "published": [
+   14243
+  ],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/orthanc-team?s=256",
+  "note": "DICOM server with DICOMweb and the Stone Web Viewer"
+ },
+ {
+  "id": "saud-orthanc-research-archive",
+  "name": "Orthanc Research Archive",
+  "group": "Imaging",
+  "port": 5416,
+  "status": "custom",
+  "version": "26.9.1",
+  "images": [
+   "orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2",
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+  ],
+  "published": [
+   14244
+  ],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/orthanc-team?s=256",
+  "note": "Orthanc with a PostgreSQL index for larger research archives"
+ },
+ {
+  "id": "saud-ohif-viewer",
+  "name": "OHIF Viewer",
+  "group": "Imaging",
+  "port": 5417,
+  "status": "custom",
+  "version": "26.9.1",
+  "images": [
+   "orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2"
+  ],
+  "published": [
+   14245
+  ],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/orthanc-team?s=256",
+  "note": "OHIF zero-footprint viewer served by Orthanc"
+ },
+ {
+  "id": "saud-dicom-deid",
+  "name": "DICOM De-identifier",
+  "group": "Imaging",
+  "port": 5418,
+  "status": "custom",
+  "version": "26.9.1",
+  "images": [
+   "orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2"
+  ],
+  "published": [
+   14246
+  ],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/orthanc-team?s=256",
+  "note": "Inbox that de-identifies every study it receives"
+ },
+ {
+  "id": "saud-onlyoffice",
+  "name": "ONLYOFFICE Docs",
+  "group": "Documents",
+  "port": 5419,
+  "status": "custom",
+  "version": "9.4.0.1",
+  "images": [
+   "onlyoffice/documentserver:9.4.0.1@sha256:3ab6ebc7c605e5a32b7ae3ff19daed4925090245acc8100ce2230bd766c88212"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/onlyoffice.svg",
+  "note": "Document server for editing Word, Excel and PowerPoint files"
+ },
+ {
+  "id": "saud-hedgedoc",
+  "name": "HedgeDoc",
+  "group": "Documents",
+  "port": 5420,
+  "status": "custom",
+  "version": "1.12.0",
+  "images": [
+   "quay.io/hedgedoc/hedgedoc:1.12.0@sha256:89bd85d7817fb3e3a4aafdd85aefb0fbb20b848f6dbf1d9ee0d72fdcb76710cc",
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/hedgedoc.svg",
+  "note": "Collaborative Markdown notes"
+ },
+ {
+  "id": "saud-oie",
+  "name": "Open Integration Engine",
+  "group": "Interoperability",
+  "port": 5421,
+  "status": "custom",
+  "version": "4.5.2",
+  "images": [
+   "openintegrationengine/engine:4.5.2-ubuntu-jre@sha256:90f507dd5375979209e53ba2a4d7121ccd6b4f6ddd48332dccfdce303fd0f5d1",
+   "openintegrationengine/engine:4.5.2-ubuntu-jre@sha256:90f507dd5375979209e53ba2a4d7121ccd6b4f6ddd48332dccfdce303fd0f5d1"
+  ],
+  "published": [
+   18443,
+   6661
+  ],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/OpenIntegrationEngine/engine/03eefcfe06/server/public_html/images/oie_logo_bottom_text.svg",
+  "note": "HL7 v2 and FHIR integration engine (open fork of Mirth Connect)"
+ },
+ {
+  "id": "saud-hapi-fhir",
+  "name": "HAPI FHIR Server",
+  "group": "Interoperability",
+  "port": 5422,
+  "status": "custom",
+  "version": "8.12.0",
+  "images": [
+   "hapiproject/hapi:v8.12.0-1@sha256:d7f38d3676900b07e8a7d3500426eaf8d90ea9ced9a6726416f080f68e230fb0",
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/hapifhir?s=256",
+  "note": "FHIR R4 server with a PostgreSQL backend"
+ },
+ {
+  "id": "saud-fhir-validator",
+  "name": "FHIR Validator",
+  "group": "Interoperability",
+  "port": 5423,
+  "status": "custom",
+  "version": "1.0.84",
+  "images": [
+   "markiantorno/validator-wrapper:1.0.84@sha256:06061a298a6740e4c6d17dd7df13c4ae73619cccd6e798ac554a2bda660c730b"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/hapifhir/org.hl7.fhir.validator-wrapper/d4805202a3/src/jvmMain/resources/static-content/images/fhir-logo.png",
+  "note": "Validate FHIR resources against profiles and implementation guides"
+ },
+ {
+  "id": "saud-synthea",
+  "name": "Synthea",
+  "group": "Interoperability",
+  "port": 5424,
+  "status": "custom",
+  "version": "4.0.0",
+  "images": [
+   "curlimages/curl:8.22.0@sha256:58adaa4e8dca9c988bae2aba4ab3434a0bb2da16bbe3f92dec39ec7785166777",
+   "eclipse-temurin:21-jre@sha256:49e21e16e3c86eb7816a44a67549910ed090fbeb40c29c525d58bf5e02e91b0f",
+   "filebrowser/filebrowser:v2.63.23@sha256:a469ea076d4a1b4b1d86a41d130f2f536cd9da996a2b1fb39c0d7635f9d89b9a"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/synthetichealth?s=256",
+  "note": "Synthetic patient generator with a file browser for the output"
+ },
+ {
+  "id": "saud-openemr",
+  "name": "OpenEMR",
+  "group": "Interoperability",
+  "port": 5425,
+  "status": "custom",
+  "version": "8.4.1",
+  "images": [
+   "openemr/openemr:8.4.1@sha256:def4d28786e5181860cb4a4598b367f1a63fb269a7c6b7e39e5855adb4f1a1f2",
+   "mariadb:11.8.9@sha256:79d59758afc91b89b120b0a8904d637f5a3b3e1c4900f29b740d6d46c72fef68"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/openemr.svg",
+  "note": "Open-source electronic health record for training and sandbox use"
+ },
+ {
+  "id": "saud-openmrs",
+  "name": "OpenMRS 3",
+  "group": "Interoperability",
+  "port": 5426,
+  "status": "custom",
+  "version": "3.7.1",
+  "images": [
+   "openmrs/openmrs-reference-application-3-gateway:3.7.1@sha256:49070abbcda8aeced46f78ce0c1559236a2ba45bc624fe8485a59220cbd159a2",
+   "openmrs/openmrs-reference-application-3-frontend:3.7.1@sha256:f6b1f8443ab27a6b1c3944c5a948f2e0cdfea3701dcfd59316677fef28a58f8d",
+   "busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+   "openmrs/openmrs-reference-application-3-backend:3.7.1@sha256:929cfe5dca5f221460e0f4a57abb9294614df5f74fbb3bb865e01b8dfe7a985b",
+   "mariadb:10.11.19@sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/openmrs/openmrs-esm-core/196e5d3a91/packages/framework/esm-styleguide/src/logo/openmrs-logo-icon.svg",
+  "note": "OpenMRS 3 reference application with demo data"
+ },
+ {
+  "id": "saud-limesurvey",
+  "name": "LimeSurvey",
+  "group": "Education",
+  "port": 5427,
+  "status": "custom",
+  "version": "7.1.2",
+  "images": [
+   "martialblog/limesurvey:7.1.2-260917-apache@sha256:cdc8ff1c39d006e85379bd873686a3245f35da8def40f26dd673e27437226a31",
+   "martialblog/limesurvey:7.1.2-260917-apache@sha256:cdc8ff1c39d006e85379bd873686a3245f35da8def40f26dd673e27437226a31",
+   "mariadb:11.8.9@sha256:79d59758afc91b89b120b0a8904d637f5a3b3e1c4900f29b740d6d46c72fef68"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/limesurvey.svg",
+  "note": "Surveys, course evaluations and research questionnaires"
+ },
+ {
+  "id": "saud-moodle",
+  "name": "Moodle",
+  "group": "Education",
+  "port": 5428,
+  "status": "custom",
+  "version": "5.2.3",
+  "images": [
+   "erseco/alpine-moodle:v5.2.3@sha256:75dc2b3934d51122313674fbacf99702f23ffdc5511fb5f3b87fd45129cf1d1e",
+   "erseco/alpine-moodle:v5.2.3@sha256:75dc2b3934d51122313674fbacf99702f23ffdc5511fb5f3b87fd45129cf1d1e",
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/moodle.svg",
+  "note": "Learning management system with built-in H5P"
+ },
+ {
+  "id": "saud-h5p",
+  "name": "H5P",
+  "group": "Education",
+  "port": 5429,
+  "status": "disabled",
+  "version": "1.0.0",
+  "images": [
+   "busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://avatars.githubusercontent.com/h5p?s=256",
+  "note": "Interactive content (use the H5P built into Moodle)"
+ },
+ {
+  "id": "saud-baserow",
+  "name": "Baserow",
+  "group": "Development",
+  "port": 5430,
+  "status": "custom",
+  "version": "2.3.4",
+  "images": [
+   "baserow/baserow:2.3.4@sha256:97e1818daf5dd64a0a8f7069db4199c2a79b9234cff450b60d97fc99b8c4ab39"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/baserow.svg",
+  "note": "No-code database and spreadsheet-style app builder"
+ },
+ {
+  "id": "saud-glitchtip",
+  "name": "GlitchTip (Sentry-compatible)",
+  "group": "Development",
+  "port": 5431,
+  "status": "custom",
+  "version": "6.2.6",
+  "images": [
+   "glitchtip/glitchtip:6.2.6@sha256:a3d8eb1b36c1e1603d55ab32711ea3dd8115874742a781a57391a62a16e0dff6",
+   "glitchtip/glitchtip:6.2.6@sha256:a3d8eb1b36c1e1603d55ab32711ea3dd8115874742a781a57391a62a16e0dff6",
+   "postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/glitchtip.svg",
+  "note": "Error tracking that accepts Sentry SDKs"
+ },
+ {
+  "id": "saud-github-actions-runner",
+  "name": "GitHub Actions Runner",
+  "group": "Development",
+  "port": 5432,
+  "status": "disabled",
+  "version": "2.337.0",
+  "images": [
+   "busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+   "myoung34/github-runner:2.337.0-ubuntu-noble@sha256:1b947d2475cc6f4c3edf0e91dd879b091857e41a311be917016243479bb34101"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/github.svg",
+  "note": "Self-hosted GitHub Actions runner (disabled until configured)"
+ },
+ {
+  "id": "saud-portainer",
+  "name": "Portainer",
+  "group": "Operations",
+  "port": 5433,
+  "status": "mirror",
+  "version": "2.45.1",
+  "images": [
+   "docker:27.2.0-dind@sha256:f9f72ad901a78f27be922b2d320bbc263174f12919c1b37e6a01f828fa904565",
+   "portainer/portainer-ce:2.45.1-alpine@sha256:4d9a99f4495c005388842b94d72377d5239eac8686543428c3ff7c9b6c0882bb"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/portainer/icon.svg",
+  "note": "Official app `portainer` (official port 9000)"
+ },
+ {
+  "id": "saud-uptime-kuma",
+  "name": "Uptime Kuma",
+  "group": "Operations",
+  "port": 5434,
+  "status": "mirror",
+  "version": "2.5.5",
+  "images": [
+   "louislam/uptime-kuma:2.5.5@sha256:c74379ac4509ce2d2c2633f509e67003ee2e45b6e995c5e43fc101f45a0e1fbe"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/uptime-kuma/icon.svg",
+  "note": "Official app `uptime-kuma` (official port 8385)"
+ },
+ {
+  "id": "saud-langflow",
+  "name": "Langflow",
+  "group": "AI",
+  "port": 5435,
+  "status": "mirror",
+  "version": "1.12.3",
+  "images": [
+   "langflowai/langflow:1.12.3@sha256:34055a07d446de51760e28dab6332e22624e5f48dca611567779992fc32c5ec0",
+   "postgres:16.14-trixie@sha256:4b7183ac05f8ef417db21fd72d71047a4238340c261d3cc3ddb6d579ab5071ae"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/langflow/icon.svg",
+  "note": "Official app `langflow` (official port 8862)"
+ },
+ {
+  "id": "saud-grafana",
+  "name": "Grafana",
+  "group": "Operations",
+  "port": 5436,
+  "status": "mirror",
+  "version": "13.2.2-patch.1",
+  "images": [
+   "grafana/grafana:13.2.2@sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/grafana/icon.svg",
+  "note": "Official app `grafana` (official port 3030)"
+ },
+ {
+  "id": "saud-jupyterlab",
+  "name": "JupyterLab",
+  "group": "Analytics",
+  "port": 5437,
+  "status": "mirror",
+  "version": "v4.6.3-patch.2",
+  "images": [
+   "quay.io/jupyter/base-notebook:lab-4.6.3@sha256:5fe2f811217b1d35448ef2e94ea5515914e894aa9f41688b8fac55ddd0b82640"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/jupyterlab/icon.svg",
+  "note": "Official app `jupyterlab` (official port 8899)"
+ },
+ {
+  "id": "saud-nextcloud",
+  "name": "Nextcloud",
+  "group": "Documents",
+  "port": 5438,
+  "status": "mirror",
+  "version": "35.0.0",
+  "images": [
+   "mariadb:10.11.19@sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+   "redis:6.2.2-buster@sha256:e10f55f92478715698a2cef97c2bbdc48df2a05081edd884938903aa60df6396",
+   "nextcloud:35.0.0-apache@sha256:901b85afe28df992d7b310b8f5dbea12648640b1e162d6b87d2cba37984c0b29",
+   "nextcloud:35.0.0-apache@sha256:901b85afe28df992d7b310b8f5dbea12648640b1e162d6b87d2cba37984c0b29"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/nextcloud/icon.svg",
+  "note": "Official app `nextcloud` (official port 8081)"
+ },
+ {
+  "id": "saud-vikunja",
+  "name": "Vikunja",
+  "group": "Development",
+  "port": 5439,
+  "status": "mirror",
+  "version": "2.6.0-patch.1",
+  "images": [
+   "mariadb:10.11.8@sha256:75f6e61397758489d1dccf95db33b6b49ebfc7ec1253d40060fdf8ceb7f938a3",
+   "vikunja/vikunja:2.6.0@sha256:417ada6f94e81f0267aa2f007d0a811fc82d38dd2aa58351e3ea520ca01c2ea5"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/vikunja/icon.svg",
+  "note": "Official app `vikunja` (official port 4523)"
+ },
+ {
+  "id": "saud-outline",
+  "name": "Outline",
+  "group": "Documents",
+  "port": 5440,
+  "status": "mirror",
+  "version": "1.7.1",
+  "images": [
+   "outlinewiki/outline:1.7.1@sha256:361df7040e6f0d7abac768b99f40122197921626a7e69501aabb5fcb496fc1b4",
+   "postgres:17.9-alpine@sha256:778d0b486d6daa02b77434d0358ec57a1b21fd8b6d22ac2eef56a33e816928f6",
+   "redis:8.4.2-alpine@sha256:812a2556fa70318d980d248a65f62a3bdb72c0882e90d96e50d5c8cf2bed438d",
+   "dexidp/dex:v2.45.1@sha256:8499afd690c437f52301efd2b05b2455da5bd2dfc20332cd697dc9937f808462"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/outline/icon.svg",
+  "note": "Official app `outline` (official port 8942)"
+ },
+ {
+  "id": "saud-bookstack",
+  "name": "BookStack",
+  "group": "Documents",
+  "port": 5441,
+  "status": "mirror",
+  "version": "26.09",
+  "images": [
+   "linuxserver/bookstack:version-v26.09@sha256:5cf80598bb63bb7d475edb391af244f8ec5e9ac86018c197ad73a565e95a0012",
+   "mariadb:11.4.5@sha256:49117dcc565cf51aa57ac5fca59ab31213402ff0eae6ffc13c46a37b938f7e4b"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/bookstack/icon.svg",
+  "note": "Official app `bookstack` (official port 6875)"
+ },
+ {
+  "id": "saud-mattermost",
+  "name": "Mattermost",
+  "group": "Development",
+  "port": 5442,
+  "status": "mirror",
+  "version": "11.11.0",
+  "images": [
+   "alexlack/mattermost-app:v11.11.0@sha256:cbea92cb43836b83585dc0aa7b2fa066a959163b7294ba2a149b50c8a4df1642",
+   "alexlack/mattermost-db:v11.11.0@sha256:dda07a48aa04313a4dd177d2244d7465bc720ae87f89624a8b1c80cac65e3bb6"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/mattermost/icon.svg",
+  "note": "Official app `mattermost` (official port 8765)"
+ },
+ {
+  "id": "saud-code-server",
+  "name": "code-server",
+  "group": "Development",
+  "port": 5443,
+  "status": "mirror",
+  "version": "4.138.0",
+  "images": [
+   "codercom/code-server:4.138.0@sha256:81706b71ace316157850cbcfb574714d1067249c107a415b3a03dc6b613ebfbc"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/code-server/icon.svg",
+  "note": "Official app `code-server` (official port 8091)"
+ },
+ {
+  "id": "saud-gitea",
+  "name": "Gitea",
+  "group": "Development",
+  "port": 5444,
+  "status": "mirror",
+  "version": "1.27.3-patch.1",
+  "images": [
+   "gitea/gitea:1.27.3-rootless@sha256:1c17ecaead42eb3b5391553d8708103a4beb0e86edf5b9ebc1eb269c318845f2",
+   "mariadb:11.2.4@sha256:e9ea1dbab6783ff0281e41e3357d950a5f598b2033559b8443e03b181807910b"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/gitea/icon.svg",
+  "note": "Official app `gitea` (official port 8085)"
+ },
+ {
+  "id": "saud-forgejo",
+  "name": "Forgejo",
+  "group": "Development",
+  "port": 5445,
+  "status": "mirror",
+  "version": "16.0.5",
+  "images": [
+   "codeberg.org/forgejo/forgejo:16.0.5-rootless@sha256:5effb7305584aca479b29fde6f9631a6dbe86ae798ae02eeea33a3666f0c0bf8",
+   "postgres:17.3@sha256:0321e2252ebfeecb8bc1a899755084d29bce872953e1a5a3e25ec0860b739098"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/forgejo/icon.svg",
+  "note": "Official app `forgejo` (official port 8101)"
+ },
+ {
+  "id": "saud-minio",
+  "name": "MinIO",
+  "group": "Development",
+  "port": 5446,
+  "status": "mirror",
+  "version": "RELEASE.2025-06-13T11-33-47Z-patch.1",
+  "images": [
+   "quay.io/minio/minio:RELEASE.2025-06-13T11-33-47Z@sha256:064117214caceaa8d8a90ef7caa58f2b2aeb316b5156afe9ee8da5b4d83e12c8"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/minio/icon.svg",
+  "note": "Official app `minio` (official port 9011)"
+ },
+ {
+  "id": "saud-appsmith",
+  "name": "Appsmith",
+  "group": "Development",
+  "port": 5447,
+  "status": "mirror",
+  "version": "v2.4.2",
+  "images": [
+   "appsmith/appsmith-ce:v2.4.2@sha256:ec74dfc5136c72f75581012226d56963dded0e5492e1153b7c35b3441072c49f"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/appsmith/icon.svg",
+  "note": "Official app `appsmith` (official port 8654)"
+ },
+ {
+  "id": "saud-nocodb",
+  "name": "NocoDB",
+  "group": "Development",
+  "port": 5448,
+  "status": "mirror",
+  "version": "2026.09.0-patch.1",
+  "images": [
+   "nocodb/nocodb:2026.09.0@sha256:4ccfc5114506b1725ffc63be56445fc6fe453a6e6d5cb56eb5f88f0540d4e56e",
+   "postgres:18.3-alpine@sha256:52098013b4b64a746626437d38afc03cabff6cdeb4d3d92e2342aa95f0ce56ea"
+  ],
+  "published": [],
+  "gpu": false,
+  "icon": "https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/nocodb/icon.svg",
+  "note": "Official app `nocodb` (official port 2183)"
+ }
+]
