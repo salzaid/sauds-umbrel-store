@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-duckdb_lab_1
+      APP_PORT: 8888
+  lab:
+    image: quay.io/jupyter/scipy-notebook:2026-09-21@sha256:c88fd047a38689b1fe621309eaa91d1f0637c5c1ef3bccb7509cfa92d2b508ca
+    user: "1000:100"
+    restart: on-failure
+    environment:
+      JUPYTER_ENABLE_LAB: 'yes'
+    volumes:
+    - ${APP_DATA_DIR}/data/home:/home/jovyan
+    command:
+    - bash
+    - -c
+    - pip install --user --quiet --disable-pip-version-check duckdb==1.5.5 jupysql duckdb-engine && exec start-notebook.py --IdentityProvider.token='' --ServerApp.password='' --ServerApp.allow_origin='*'
