@@ -1,0 +1,40 @@
+manifestVersion: 1.1
+id: saud-outline
+name: Outline
+tagline: Install from the official Umbrel App Store (A modern team knowledge base and wiki)
+category: files
+version: "1.7.1"
+port: 5440
+description: |
+  This is a disabled mirror of the official `outline` app. Install Outline from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5440 so it cannot collide with the official app.
+
+  Outline is a modern, fast, and collaborative knowledge base for growing teams. It combines the best of wikis, documents, and tasks into one beautiful interface that your team will actually want to use.
+
+  Outline helps teams organize their knowledge and collaborate on documents in real-time. With a clean, intuitive interface inspired by tools like Notion, it makes it easy to create, edit, and share documentation. Whether you're building a company wiki, documenting processes, or managing project notes, Outline provides a powerful yet simple solution.
+
+  Key features include real-time collaborative editing, a beautiful markdown-based editor, powerful search across all your documents, and flexible organization with nested documents and collections. The platform supports rich media embedding, code syntax highlighting, and integrates seamlessly with your existing workflow.
+
+  Outline is designed with privacy and security in mind. All data is stored locally on your server, giving you complete control over your team's knowledge base. The platform includes granular permissions, allowing you to control who can view, edit, or share specific documents and collections.
+
+  This Umbrel installation includes Dex as a lightweight OIDC authentication provider, making it easy to get started without complex authentication setup.
+
+  Perfect for teams of any size, from small startups to large organizations, Outline scales with your needs while maintaining speed and simplicity.
+backupIgnore:
+- data/redis/*
+developer: Outline
+website: https://www.getoutline.com/
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+repo: https://github.com/outline/outline
+support: https://github.com/outline/outline/discussions
+gallery: []
+releaseNotes: "New features and improvements in this release:\n  - Per-share branding lets you override the title and logo on individual public shares\n  - MCP responses now include breadcrumbs, summaries, and title guidance\n  - Added delete_document and delete_collection tools to MCP\n  - Self-hosted instances can now tune rate limiting with the new RATE_LIMITER_MULTIPLIER option\n  - Default model creation rate limits raised from 10/min to 25/min\n  - Added a UI element to clear search highlights when navigating to a document from search results\n  - Improved table-of-contents positioning on shared documents\n  - Improved sidebar performance\n  - Shift-Tab on a list item inside a toggle block no longer outdents the entire block\n  - Code blocks now expand correctly when printing\n  - API keys created with global read/write scope are now saved correctly\n  - Republishing a document now correctly updates the last modified user\n  - Suspended users are no longer counted toward the cached\
+  \ group member count\n  - Post-login redirects with invalid paths are now handled correctly in Firefox\n  - Autofocus now works inside lazy-loaded modals and popovers\n\n\nFull release notes can be found at https://github.com/outline/outline"
+dependencies: []
+path: ""
+defaultUsername: "umbrel@umbrel.local"
+deterministicPassword: true
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/outline/icon.svg
