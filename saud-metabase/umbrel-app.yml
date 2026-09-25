@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-metabase
+name: Metabase
+tagline: Dashboards and questions on your registry data
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/metabase.svg
+category: developer
+version: "0.63.18.2"
+port: 5410
+description: |
+  Metabase turns SQL databases into charts and dashboards. Its own settings live in a bundled PostgreSQL.
+
+  Add saud-postgresql_db_1 (port 5432) as a data source to analyse registry or TQIP extracts. Create the admin account on first launch.
+developer: Metabase
+website: https://www.metabase.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/metabase/metabase
+support: https://github.com/metabase/metabase/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
