@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-qdrant_web_1
+      APP_PORT: 6333
+  web:
+    image: qdrant/qdrant:v1.19.1@sha256:12364fe851b9f17356fc88189fc06d1b521262e04659ec7345975b00c9246a10
+    restart: on-failure
+    environment:
+      QDRANT__SERVICE__API_KEY: ${APP_PASSWORD}
+      QDRANT__TELEMETRY_DISABLED: 'true'
+    volumes:
+    - ${APP_DATA_DIR}/data/storage:/qdrant/storage
+    - ${APP_DATA_DIR}/data/snapshots:/qdrant/snapshots
