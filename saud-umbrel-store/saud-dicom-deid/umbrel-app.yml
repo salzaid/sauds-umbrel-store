@@ -1,0 +1,26 @@
+manifestVersion: 1.1
+id: saud-dicom-deid
+name: DICOM De-identifier
+tagline: Inbox that de-identifies every study it receives
+icon: https://avatars.githubusercontent.com/orthanc-team?s=256
+category: media
+version: "26.9.1"
+port: 5418
+description: |
+  An Orthanc inbox with a Lua script: each study sent to it is anonymized with the DICOM basic profile when it becomes stable, and the identifiable original is deleted. Check results before sharing; burned-in pixel text is not removed.
+
+  DICOM C-STORE: AE title SAUDDEID, port 14246 on your Umbrel.
+
+  For de-identified or synthetic studies only. Not a clinical PACS.
+developer: Orthanc Team
+website: https://www.orthanc-server.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/orthanc-team/orthanc-builder
+support: https://discourse.orthanc-server.org
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
