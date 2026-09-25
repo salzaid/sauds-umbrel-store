@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-ohif-viewer_server_1
+      APP_PORT: 8042
+  server:
+    image: orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2
+    restart: on-failure
+    ports:
+    - "14245:4242"
+    environment:
+      ORTHANC__NAME: OHIF Viewer
+      ORTHANC__DICOM_AET: SAUDOHIF
+      ORTHANC__DICOM_PORT: '4242'
+      ORTHANC__AUTHENTICATION_ENABLED: 'false'
+      ORTHANC__REMOTE_ACCESS_ALLOWED: 'true'
+      ORTHANC__DICOM_ALWAYS_ALLOW_STORE: 'true'
+      ORTHANC__DICOM_CHECK_CALLED_AET: 'false'
+      ORTHANC__STORAGE_DIRECTORY: /var/lib/orthanc/db
+      VERBOSE_STARTUP: 'true'
+      DICOM_WEB_PLUGIN_ENABLED: 'true'
+      OHIF_PLUGIN_ENABLED: 'true'
+      ORTHANC__OHIF__DATA_SOURCE: dicom-web
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/orthanc/db
