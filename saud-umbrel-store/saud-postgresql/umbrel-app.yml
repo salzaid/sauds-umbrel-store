@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-postgresql
+name: PostgreSQL
+tagline: Shared PostgreSQL 16 server with a web SQL console
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/postgresql.svg
+category: developer
+version: "16.15"
+port: 5409
+description: |
+  A PostgreSQL 16 server for registry and analytics work, with pgweb as a browser-based SQL console.
+
+  Other apps connect to host saud-postgresql_db_1, port 5432, user postgres, and the password shown in umbrelOS. The server is not published on the LAN by default.
+developer: PostgreSQL Global Development Group
+website: https://www.postgresql.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/postgres/postgres
+support: https://www.postgresql.org/support/
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: "postgres"
+defaultPassword: ""
+deterministicPassword: true
