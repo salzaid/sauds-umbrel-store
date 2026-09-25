@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-onlyoffice
+name: ONLYOFFICE Docs
+tagline: Document server for editing Word, Excel and PowerPoint files
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/onlyoffice.svg
+category: files
+version: "9.4.0.1"
+port: 5419
+description: |
+  ONLYOFFICE Document Server lets Nextcloud and other apps edit office files in the browser. JWT is enabled; the secret is the password shown in umbrelOS.
+
+  From Nextcloud, set the Document Server address to http://<umbrel-ip>:5419 and paste the secret.
+developer: Ascensio System SIA
+website: https://www.onlyoffice.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/ONLYOFFICE/DocumentServer
+support: https://github.com/ONLYOFFICE/DocumentServer/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+deterministicPassword: true
