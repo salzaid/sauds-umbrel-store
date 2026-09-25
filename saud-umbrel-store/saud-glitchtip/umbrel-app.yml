@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-glitchtip
+name: GlitchTip (Sentry-compatible)
+tagline: Error tracking that accepts Sentry SDKs
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/glitchtip.svg
+category: developer
+version: "6.2.6"
+port: 5431
+description: |
+  GlitchTip receives errors and performance events from any Sentry SDK. It replaces self-hosted Sentry, which needs 20+ containers and at least 16 GB of RAM on its own.
+
+  Runs in all-in-one mode (web and worker in one container) with PostgreSQL. Register the first account on launch. Email is written to the container log.
+developer: Burke Software and Consulting
+website: https://glitchtip.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://gitlab.com/glitchtip/glitchtip
+support: https://gitlab.com/glitchtip/glitchtip/-/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
