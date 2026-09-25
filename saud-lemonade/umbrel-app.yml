@@ -1,0 +1,28 @@
+manifestVersion: 1.1
+id: saud-lemonade
+name: Lemonade Server
+tagline: Local LLM server with an OpenAI-compatible API and AMD GPU acceleration
+icon: https://raw.githubusercontent.com/lemonade-sdk/lemonade/6deeb05f77/docs/assets/logo_512.png
+category: ai
+version: "2026.39.1"
+port: 5404
+description: |
+  Lemonade runs large language models locally with llama.cpp and exposes an OpenAI-compatible API at /api/v1.
+
+  This package requests GPU access, so umbrelOS passes /dev/dri and /dev/kfd to the container automatically. Vulkan works out of the box on Radeon RX 7000 cards; ROCm can be selected in Settings.
+
+  Other Umbrel apps can reach the API at http://saud-lemonade_server_1:13305/api/v1.
+developer: Lemonade SDK
+website: https://lemonade-server.ai
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/lemonade-sdk/lemonade
+support: https://github.com/lemonade-sdk/lemonade/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+permissions:
+- GPU
