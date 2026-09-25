@@ -1,0 +1,53 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-orthanc-research-archive_server_1
+      APP_PORT: 8042
+  server:
+    image: orthancteam/orthanc:26.9.1@sha256:d2705f2c56547e55ce9bc2250fd22d05d326493b3f3d9fa191ecb7db8ca6b5a2
+    restart: on-failure
+    ports:
+    - "14244:4242"
+    environment:
+      ORTHANC__NAME: Orthanc Research Archive
+      ORTHANC__DICOM_AET: SAUDARCH
+      ORTHANC__DICOM_PORT: '4242'
+      ORTHANC__AUTHENTICATION_ENABLED: 'false'
+      ORTHANC__REMOTE_ACCESS_ALLOWED: 'true'
+      ORTHANC__DICOM_ALWAYS_ALLOW_STORE: 'true'
+      ORTHANC__DICOM_CHECK_CALLED_AET: 'false'
+      ORTHANC__STORAGE_DIRECTORY: /var/lib/orthanc/db
+      VERBOSE_STARTUP: 'true'
+      DICOM_WEB_PLUGIN_ENABLED: 'true'
+      STONE_WEB_VIEWER_PLUGIN_ENABLED: 'true'
+      ORTHANC__POSTGRESQL__HOST: saud-orthanc-research-archive_db_1
+      ORTHANC__POSTGRESQL__PORT: '5432'
+      ORTHANC__POSTGRESQL__DATABASE: orthanc
+      ORTHANC__POSTGRESQL__USERNAME: orthanc
+      ORTHANC__POSTGRESQL__PASSWORD: ${APP_PASSWORD}
+      ORTHANC__POSTGRESQL__ENABLE_INDEX: 'true'
+      ORTHANC__POSTGRESQL__ENABLE_STORAGE: 'false'
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/orthanc/db
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+    - ${APP_DATA_DIR}/data/pg:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: orthanc
+      POSTGRES_USER: orthanc
+      POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U orthanc -d orthanc
+      interval: 10s
+      timeout: 5s
+      retries: 10
