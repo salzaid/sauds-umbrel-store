@@ -1,0 +1,39 @@
+manifestVersion: 1
+id: saud-uptime-kuma
+storage:
+  dataRoot: data
+category: networking
+name: Uptime Kuma
+version: "2.5.5"
+tagline: Install from the official Umbrel App Store (Self-hosted uptime monitoring tool)
+description: |
+  This is a disabled mirror of the official `uptime-kuma` app. Install Uptime Kuma from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5434 so it cannot collide with the official app.
+
+  Uptime Kuma is a self-hosted monitoring tool like Uptime Robot.
+
+  Features:
+
+  - Monitoring uptime for HTTP(s) / TCP / HTTP(s) Keyword / Ping / DNS Record / Push / Steam Game Server.
+  - Fancy, Reactive, Fast UI/UX.
+  - Notifications via Telegram, Discord, Gotify, Slack, Pushover, Email (SMTP), and 70+ notification services.
+  - 20 second intervals.
+  - Multi Languages
+  - Simple Status Page
+  - Ping Chart
+  - Certificate Info
+developer: Louis Lam
+website: https://uptime.kuma.pet
+dependencies: []
+repo: https://github.com/louislam/uptime-kuma
+support: https://github.com/louislam/uptime-kuma/issues
+port: 5434
+gallery: []
+path: ""
+defaultPassword: ""
+releaseNotes: "This update fixes a memory leak affecting TCP monitors.\n\nFull release notes can be found at https://github.com/louislam/uptime-kuma/releases/tag/2.5.5\n"
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/uptime-kuma/icon.svg
