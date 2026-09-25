@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-github-actions-runner_web_1
+      APP_PORT: 8080
+  web:
+    image: busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e
+    user: "1000:1000"
+    restart: on-failure
+    command:
+    - sh
+    - -c
+    - 'mkdir -p /tmp/www && cat > /tmp/www/index.html <<''EOF''
+
+      <!doctype html><html><head><meta charset="utf-8"><title>GitHub Actions Runner</title>
+
+      <style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem;line-height:1.5;color:#222}code{background:#f2f2f2;padding:.1rem .3rem}</style>
+
+      </head><body><h1>GitHub Actions Runner</h1><p>The runner has no web interface. Check its logs with Dozzle.</p></body></html>
+
+      EOF
+
+      exec httpd -f -p 8080 -h /tmp/www'
+  runner:
+    image: myoung34/github-runner:2.337.0-ubuntu-noble@sha256:1b947d2475cc6f4c3edf0e91dd879b091857e41a311be917016243479bb34101
+    restart: on-failure
+    environment:
+      REPO_URL: ${RUNNER_REPO_URL}
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
+      RUNNER_NAME: umbrel
+      RUNNER_WORKDIR: /tmp/runner/work
+      LABELS: umbrel,x64,self-hosted
+      RUNNER_SCOPE: repo
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ${APP_DATA_DIR}/data/work:/tmp/runner/work
