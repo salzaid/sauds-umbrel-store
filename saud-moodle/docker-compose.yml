@@ -1,0 +1,62 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-moodle_web_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+  init:
+    image: erseco/alpine-moodle:v5.2.3@sha256:75dc2b3934d51122313674fbacf99702f23ffdc5511fb5f3b87fd45129cf1d1e
+    user: "0:0"
+    restart: 'no'
+    entrypoint:
+    - chown
+    - -R
+    - nobody:nobody
+    - /var/www/moodledata
+    volumes:
+    - ${APP_DATA_DIR}/data/moodledata:/var/www/moodledata
+  web:
+    image: erseco/alpine-moodle:v5.2.3@sha256:75dc2b3934d51122313674fbacf99702f23ffdc5511fb5f3b87fd45129cf1d1e
+    restart: on-failure
+    depends_on:
+      init:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+    environment:
+      SITE_URL: http://${DEVICE_DOMAIN_NAME}:5428
+      DB_TYPE: pgsql
+      DB_HOST: saud-moodle_db_1
+      DB_PORT: '5432'
+      DB_NAME: moodle
+      DB_USER: moodle
+      DB_PASS: ${APP_PASSWORD}
+      MOODLE_USERNAME: admin
+      MOODLE_PASSWORD: ${APP_PASSWORD}
+      MOODLE_EMAIL: admin@example.com
+      MOODLE_SITENAME: Umbrel Moodle
+      MOODLE_LANGUAGE: en
+      REVERSEPROXY: 'false'
+      SSLPROXY: 'false'
+      AUTO_UPDATE_MOODLE: 'false'
+    volumes:
+    - ${APP_DATA_DIR}/data/moodledata:/var/www/moodledata
+  db:
+    image: postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: moodle
+      POSTGRES_USER: moodle
+      POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U moodle -d moodle
+      interval: 10s
+      timeout: 5s
+      retries: 10
