@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-duckdb
+name: DuckDB Lab
+tagline: JupyterLab with DuckDB for fast local analytics
+icon: https://raw.githubusercontent.com/duckdb/duckdb/ca15f79c32/logo/DuckDB_Logo-stacked.svg
+category: developer
+version: "2026-09-21"
+port: 5412
+description: |
+  A JupyterLab notebook server with DuckDB, JupySQL and pandas, for analysing CSV and Parquet extracts locally.
+
+  The Python packages are installed into your persistent home folder on first start, which takes a few minutes. Access is protected by the umbrelOS login.
+developer: Project Jupyter / DuckDB Foundation
+website: https://duckdb.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/jupyter/docker-stacks
+support: https://github.com/jupyter/docker-stacks/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
