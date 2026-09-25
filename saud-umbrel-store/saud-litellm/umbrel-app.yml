@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-litellm
+name: LiteLLM Proxy
+tagline: One OpenAI-compatible gateway in front of all your model providers
+icon: https://raw.githubusercontent.com/BerriAI/litellm/c19ce71bcdad234ca87a7af10cee45375ce811a8/litellm/proxy/swagger/favicon.png
+category: ai
+version: "1.83.14"
+port: 5408
+description: |
+  LiteLLM Proxy routes OpenAI-format requests to local and cloud models, with keys, budgets and logging. Models are managed in the admin UI at /ui and stored in the bundled PostgreSQL.
+
+  Log in with username admin and the password shown in umbrelOS. The master API key is sk- followed by that password.
+developer: BerriAI
+website: https://www.litellm.ai
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/BerriAI/litellm
+support: https://github.com/BerriAI/litellm/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: "/ui"
+defaultUsername: "admin"
+defaultPassword: ""
+deterministicPassword: true
