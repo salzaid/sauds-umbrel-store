@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: saud-langflow
+storage:
+  dataRoot: data
+name: Langflow
+tagline: Install from the official Umbrel App Store (Build AI agents and workflows visually)
+category: ai
+version: "1.12.3"
+port: 5435
+description: |
+  This is a disabled mirror of the official `langflow` app. Install Langflow from the official Umbrel App Store instead: it is maintained, updated and tested there.
+
+  The mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5435 so it cannot collide with the official app.
+
+  Langflow is a visual platform for building and deploying AI-powered agents and workflows. It gives developers a drag-and-drop authoring experience, source-code access for custom Python components, an interactive playground for testing flows, and built-in API and MCP servers that turn workflows into tools for other applications.
+
+  Use Langflow to prototype multi-agent systems, retrieval workflows, automations, and LLM applications with support for major model providers, vector databases, observability integrations, and a growing library of AI tools.
+developer: Langflow
+website: https://www.langflow.org/
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+repo: https://github.com/langflow-ai/langflow
+support: https://github.com/langflow-ai/langflow/issues
+gallery: []
+releaseNotes: "Adds an Assistant slash-command menu and a larger 100-step Assistant run budget.\n\nImproves Assistant, MCP server, OpenSearch, Knowledge Base, export, and provider-package handling.\n\nAdds security hardening for SSRF checks, code scanning, component publishing, result caching, flow ZIP imports, local file access, and several sandbox escape paths.\n\nFixes credential redaction in settings errors and console tracebacks."
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+deterministicPassword: false
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/langflow/icon.svg
