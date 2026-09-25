@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-nextcloud
+storage:
+  dataRoot: data
+category: files
+name: Nextcloud
+version: "35.0.0"
+tagline: Install from the official Umbrel App Store (Productivity platform that keeps you in control)
+description: "This is a disabled mirror of the official `nextcloud` app. Install Nextcloud from the official Umbrel App Store instead: it is maintained, updated and tested there.\n\nThe mirror is kept only so this store's catalog stays complete. If you ever enable it, it uses its own app id and port 5438 so it cannot collide with the official app.\n\nNextcloud puts your data at your fingertips, under your control. Store your documents, calendar, contacts and photos on your Umbrel instead of some company's data center. Features:\n\n- Mobile and desktop sync \n- Versioning and undelete \n- Galleries and activity feed \n- File editing and preview support for PDF, images, text files, Open Document, Word files and more. \n- Smooth performance and easy user interface. \n- Fine-grained control over access to data and sharing capabilities by user and by group.\n\nNote: After logging in to Nextcloud please change the password to something secure before sharing the address with anyone.\n"
+releaseNotes: "Nextcloud 35 is a major release. Updating from an older version can take a while as Nextcloud automatically works through each required upgrade. The app will be unavailable during the update; keep your Umbrel powered on until it finishes.\n\nThis update also upgrades the database to MariaDB 10.11, as required by Nextcloud 35. Existing data is migrated automatically.\n\nHighlights:\n  - \U0001F4C1 Improves Files, WebDAV, sharing, file requests, trashbin, versions, previews, and external storage behavior\n  - \U0001F4C5 Includes maintenance fixes across Activity, Contacts, Calendar, notifications, federation, Photos, Text, Viewer, and workflow apps\n  - \U0001F510 Includes security and reliability hardening for authentication, tokens, 2FA/WebAuthn, encryption, migrations, and sensitive configuration handling\n\n\nIf you use extra Nextcloud apps, check for app updates in Nextcloud after upgrading.\n\nFull release notes are found at https://github.com/nextcloud-releases/server/releases/tag/v35.0.0"
+developer: Nextcloud GmbH
+website: https://nextcloud.com
+dependencies: []
+repo: https://github.com/nextcloud/server
+support: https://help.nextcloud.com/categories
+port: 5438
+gallery: []
+path: ""
+defaultUsername: "umbrel"
+deterministicPassword: true
+torOnly: false
+submitter: Saud Alzaid (mirror of official package)
+submission: https://github.com/getumbrel/umbrel-apps
+disabled: true
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/nextcloud/icon.svg
