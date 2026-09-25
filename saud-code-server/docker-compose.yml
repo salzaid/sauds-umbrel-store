@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-code-server_server_1
+      APP_PORT: 8080
+
+  server:
+    image: codercom/code-server:4.138.0@sha256:81706b71ace316157850cbcfb574714d1067249c107a415b3a03dc6b613ebfbc
+    restart: on-failure
+    user: "1000:1000"
+    volumes:
+      - ${APP_DATA_DIR}/data:/home/coder
+    environment:
+      PASSWORD: $APP_PASSWORD
