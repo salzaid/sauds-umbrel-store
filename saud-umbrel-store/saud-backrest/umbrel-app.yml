@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-backrest
+name: Backrest
+tagline: Web UI and scheduler for restic backups
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/backrest.svg
+category: files
+version: "1.14.1"
+port: 5403
+description: |
+  Backrest is a web interface for restic. It schedules snapshots, prunes old ones and lets you browse and restore files.
+
+  Your Umbrel home folder is mounted read-only at /userdata. Local repositories can be created under /repos, but keep at least one copy off the device.
+developer: Gareth George
+website: https://garethgeorge.github.io/backrest
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/garethgeorge/backrest
+support: https://github.com/garethgeorge/backrest/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
