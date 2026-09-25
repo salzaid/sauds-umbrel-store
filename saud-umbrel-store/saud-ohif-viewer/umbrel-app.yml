@@ -1,0 +1,26 @@
+manifestVersion: 1.1
+id: saud-ohif-viewer
+name: OHIF Viewer
+tagline: OHIF zero-footprint viewer served by Orthanc
+icon: https://avatars.githubusercontent.com/orthanc-team?s=256
+category: media
+version: "26.9.1"
+port: 5417
+description: |
+  The OHIF Viewer, served by the Orthanc OHIF plugin with DICOMweb. Open a study from Orthanc Explorer 2 and choose OHIF.
+
+  DICOM C-STORE: AE title SAUDOHIF, port 14245 on your Umbrel.
+
+  For de-identified or synthetic studies only. Not a clinical PACS.
+developer: Orthanc Team
+website: https://www.orthanc-server.com
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/orthanc-team/orthanc-builder
+support: https://discourse.orthanc-server.org
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
