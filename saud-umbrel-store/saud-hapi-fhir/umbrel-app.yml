@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-hapi-fhir
+name: HAPI FHIR Server
+tagline: FHIR R4 server with a PostgreSQL backend
+icon: https://avatars.githubusercontent.com/hapifhir?s=256
+category: developer
+version: "8.12.0"
+port: 5422
+description: |
+  The HAPI FHIR JPA starter server with a web tester UI and a FHIR R4 endpoint at /fhir, stored in a bundled PostgreSQL.
+
+  Load Synthea bundles from this store to practise FHIR queries. The endpoint has no authentication beyond the umbrelOS login, so keep it to synthetic data.
+developer: Smile Digital Health / HAPI FHIR
+website: https://hapifhir.io
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/hapifhir/hapi-fhir-jpaserver-starter
+support: https://github.com/hapifhir/hapi-fhir-jpaserver-starter/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
