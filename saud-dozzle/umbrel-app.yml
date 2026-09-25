@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-dozzle
+name: Dozzle
+tagline: Real-time log viewer for your Docker containers
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/dozzle.svg
+category: developer
+version: "11.1.1"
+port: 5401
+description: |
+  Dozzle streams the logs of every container on your Umbrel in the browser. It is read-only: it mounts the Docker socket read-only and does not store logs.
+
+  Use it to troubleshoot app installs from this store.
+developer: Amir Raminfar
+website: https://dozzle.dev
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/amir20/dozzle
+support: https://github.com/amir20/dozzle/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
