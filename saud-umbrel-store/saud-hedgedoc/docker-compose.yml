@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-hedgedoc_web_1
+      APP_PORT: 5420
+      PROXY_AUTH_ADD: "false"
+  web:
+    image: quay.io/hedgedoc/hedgedoc:1.12.0@sha256:89bd85d7817fb3e3a4aafdd85aefb0fbb20b848f6dbf1d9ee0d72fdcb76710cc
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      CMD_DB_URL: postgres://hedgedoc:${APP_PASSWORD}@saud-hedgedoc_db_1:5432/hedgedoc
+      CMD_DOMAIN: ${DEVICE_DOMAIN_NAME}
+      CMD_PORT: '5420'
+      CMD_URL_ADDPORT: 'true'
+      CMD_PROTOCOL_USESSL: 'false'
+      CMD_ALLOW_ANONYMOUS: 'false'
+      CMD_ALLOW_ANONYMOUS_EDITS: 'false'
+      CMD_EMAIL: 'true'
+      CMD_ALLOW_EMAIL_REGISTER: 'true'
+      CMD_SESSION_SECRET: ${APP_SEED}
+    volumes:
+    - ${APP_DATA_DIR}/data/uploads:/hedgedoc/public/uploads
+  db:
+    image: postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: hedgedoc
+      POSTGRES_USER: hedgedoc
+      POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U hedgedoc -d hedgedoc
+      interval: 10s
+      timeout: 5s
+      retries: 10
