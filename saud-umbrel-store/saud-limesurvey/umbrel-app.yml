@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-limesurvey
+name: LimeSurvey
+tagline: Surveys, course evaluations and research questionnaires
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/limesurvey.svg
+category: social
+version: "7.1.2"
+port: 5427
+description: |
+  LimeSurvey builds surveys with branching logic, quotas and exports to SPSS, R and CSV. Suited to course evaluations and research questionnaires.
+
+  Admin panel: /admin, user admin, password shown in umbrelOS. Survey links use http://umbrel.local:5427.
+developer: LimeSurvey GmbH
+website: https://www.limesurvey.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/martialblog/docker-limesurvey
+support: https://github.com/martialblog/docker-limesurvey/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: "/admin"
+defaultUsername: "admin"
+defaultPassword: ""
+deterministicPassword: true
