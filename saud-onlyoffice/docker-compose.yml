@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-onlyoffice_web_1
+      APP_PORT: 80
+      PROXY_AUTH_ADD: "false"
+  web:
+    image: onlyoffice/documentserver:9.4.0.1@sha256:3ab6ebc7c605e5a32b7ae3ff19daed4925090245acc8100ce2230bd766c88212
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      JWT_ENABLED: 'true'
+      JWT_SECRET: ${APP_PASSWORD}
+      JWT_HEADER: Authorization
+    volumes:
+    - ${APP_DATA_DIR}/data/data:/var/www/onlyoffice/Data
+    - ${APP_DATA_DIR}/data/lib:/var/lib/onlyoffice
+    - ${APP_DATA_DIR}/data/logs:/var/log/onlyoffice
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql
