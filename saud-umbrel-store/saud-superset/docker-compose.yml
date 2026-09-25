@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-superset_web_1
+      APP_PORT: 8088
+      PROXY_AUTH_ADD: "false"
+  perms:
+    image: apache/superset:6.1.0@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88
+    user: "0:0"
+    restart: 'no'
+    entrypoint:
+    - chown
+    - -R
+    - superset:superset
+    - /app/superset_home
+    volumes:
+    - ${APP_DATA_DIR}/data/home:/app/superset_home
+  init:
+    image: apache/superset:6.1.0@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88
+    restart: 'no'
+    depends_on:
+      perms:
+        condition: service_completed_successfully
+    environment:
+      SUPERSET_SECRET_KEY: ${APP_SEED}
+    volumes:
+    - ${APP_DATA_DIR}/data/home:/app/superset_home
+    command:
+    - sh
+    - -c
+    - superset db upgrade && (superset fab create-admin --username admin --firstname Admin --lastname User --email admin@example.com --password ${APP_PASSWORD} || true) && superset init
+  web:
+    image: apache/superset:6.1.0@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88
+    restart: on-failure
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    environment:
+      SUPERSET_SECRET_KEY: ${APP_SEED}
+    volumes:
+    - ${APP_DATA_DIR}/data/home:/app/superset_home
