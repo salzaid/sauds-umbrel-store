@@ -1,0 +1,44 @@
+Linting saud-backrest, saud-baserow, saud-dicom-deid, saud-dozzle, saud-duckdb, saud-fhir-validator, saud-flowise, saud-glitchtip, saud-hapi-fhir, saud-hedgedoc, saud-lemonade, saud-limesurvey, saud-litellm, saud-metabase, saud-moodle, saud-netdata, saud-ohif-viewer, saud-oie, saud-onlyoffice, saud-openemr, saud-openmrs, saud-orthanc-lab-basic, saud-orthanc-research-archive, saud-orthanc-research-viewer, saud-pgadmin, saud-postgresql, saud-qdrant, saud-superset, saud-synthea
+ERROR access.docker_socket saud-dozzle/docker-compose.yml:10
+  Do not mount the Docker socket; it gives the container host-level Docker control.
+WARNING service.restart saud-glitchtip/docker-compose.yml:11
+  Service `init` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-lemonade/docker-compose.yml:10
+  Service `init` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-limesurvey/docker-compose.yml:11
+  Service `init` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-moodle/docker-compose.yml:11
+  Service `init` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING access.cap_add saud-netdata/docker-compose.yml:12
+  Service `web` adds Linux capabilities; justify this in the PR.
+WARNING access.security_opt saud-netdata/docker-compose.yml:15
+  Service `web` sets security options; justify this in the PR.
+WARNING access.pid saud-netdata/docker-compose.yml:11
+  Service `web` uses host pid; justify this in the PR.
+WARNING access.host_mount saud-netdata/docker-compose.yml:20
+  Host mount `/etc/passwd` should be justified in the PR.
+WARNING access.host_mount saud-netdata/docker-compose.yml:20
+  Host mount `/etc/group` should be justified in the PR.
+WARNING access.host_mount saud-netdata/docker-compose.yml:20
+  Host mount `/proc` should be justified in the PR.
+WARNING access.host_mount saud-netdata/docker-compose.yml:20
+  Host mount `/sys` should be justified in the PR.
+WARNING access.host_mount saud-netdata/docker-compose.yml:20
+  Host mount `/etc/os-release` should be justified in the PR.
+WARNING service.restart saud-oie/docker-compose.yml:12
+  Service `init` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING compose.networks saud-openmrs/docker-compose.yml:14
+  Top-level `networks:` is unusual for Umbrel apps; umbrelOS injects the default network.
+WARNING service.restart saud-openmrs/docker-compose.yml:28
+  Service `perms` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-pgadmin/docker-compose.yml:11
+  Service `init` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-superset/docker-compose.yml:11
+  Service `perms` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-superset/docker-compose.yml:21
+  Service `init` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-synthea/docker-compose.yml:10
+  Service `fetch` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+WARNING service.restart saud-synthea/docker-compose.yml:20
+  Service `generator` uses `restart: no`; use `on-failure` unless this service specifically needs different Docker restart behavior.
+1 error(s), 20 warning(s).
