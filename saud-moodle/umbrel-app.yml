@@ -1,0 +1,25 @@
+manifestVersion: 1.1
+id: saud-moodle
+name: Moodle
+tagline: Learning management system with built-in H5P
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/moodle.svg
+category: social
+version: "5.2.3"
+port: 5428
+description: |
+  Moodle 5.2 on a lightweight Alpine image with PostgreSQL. H5P interactive content is built in (Site administration > H5P).
+
+  The first start installs the database and takes several minutes. Moodle must be opened at http://umbrel.local:5428. Log in as admin with the password shown in umbrelOS.
+developer: Moodle Pty Ltd / erseco
+website: https://moodle.org
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/erseco/alpine-moodle
+support: https://github.com/erseco/alpine-moodle/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: ""
+deterministicPassword: true
