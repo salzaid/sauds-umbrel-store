@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-baserow
+name: Baserow
+tagline: No-code database and spreadsheet-style app builder
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons@ab52e3bfaa737cba86793c76ccfcb312f8841278/svg/baserow.svg
+category: developer
+version: "2.3.4"
+port: 5430
+description: |
+  Baserow is a no-code database with a spreadsheet interface, forms and an application builder. This is the all-in-one image with its own PostgreSQL and Redis.
+
+  Baserow must be opened at http://umbrel.local:5430. Create the first account on launch; it becomes the admin.
+developer: Baserow
+website: https://baserow.io
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/baserow/baserow
+support: https://community.baserow.io
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
