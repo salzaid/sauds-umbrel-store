@@ -1,0 +1,55 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-glitchtip_web_1
+      APP_PORT: 8000
+      PROXY_AUTH_ADD: "false"
+  init:
+    image: glitchtip/glitchtip:6.2.6@sha256:a3d8eb1b36c1e1603d55ab32711ea3dd8115874742a781a57391a62a16e0dff6
+    user: "0:0"
+    restart: 'no'
+    entrypoint:
+    - chown
+    - -R
+    - app:app
+    - /code/uploads
+    volumes:
+    - ${APP_DATA_DIR}/data/uploads:/code/uploads
+  web:
+    image: glitchtip/glitchtip:6.2.6@sha256:a3d8eb1b36c1e1603d55ab32711ea3dd8115874742a781a57391a62a16e0dff6
+    restart: on-failure
+    depends_on:
+      init:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://glitchtip:${APP_PASSWORD}@saud-glitchtip_db_1:5432/glitchtip
+      SECRET_KEY: ${APP_SEED}
+      PORT: '8000'
+      SERVER_ROLE: all_in_one
+      GLITCHTIP_DOMAIN: http://${DEVICE_DOMAIN_NAME}:5431
+      DEFAULT_FROM_EMAIL: glitchtip@example.com
+      EMAIL_URL: consolemail://
+      ENABLE_USER_REGISTRATION: 'true'
+    volumes:
+    - ${APP_DATA_DIR}/data/uploads:/code/uploads
+  db:
+    image: postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: glitchtip
+      POSTGRES_USER: glitchtip
+      POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U glitchtip -d glitchtip
+      interval: 10s
+      timeout: 5s
+      retries: 10
