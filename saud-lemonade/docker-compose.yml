@@ -4,6 +4,7 @@ services:
     environment:
       APP_HOST: saud-lemonade_server_1
       APP_PORT: 13305
+      LEMONADE_ALLOWED_ORIGINS=*
   init:
     image: ghcr.io/lemonade-sdk/lemonade-server:v2026.39.1@sha256:583130946a9f57dada3e42ac047c2b842d56e041bbb5e6d38422e38746ce49eb
     user: "0:0"
