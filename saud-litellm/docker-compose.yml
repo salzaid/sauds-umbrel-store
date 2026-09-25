@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-litellm_proxy_1
+      APP_PORT: 4000
+      PROXY_AUTH_ADD: "false"
+  proxy:
+    image: litellm/litellm:v1.83.14-stable.patch.3@sha256:f12d528d4a05add56cb09e54c5126088f2edc6bdf3a2f943bcd3a32b08769da2
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://litellm:${APP_PASSWORD}@saud-litellm_db_1:5432/litellm
+      LITELLM_MASTER_KEY: sk-${APP_PASSWORD}
+      UI_USERNAME: admin
+      UI_PASSWORD: ${APP_PASSWORD}
+      STORE_MODEL_IN_DB: 'True'
+      LITELLM_TELEMETRY: 'False'
+  db:
+    image: postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: litellm
+      POSTGRES_USER: litellm
+      POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U litellm -d litellm
+      interval: 10s
+      timeout: 5s
+      retries: 10
