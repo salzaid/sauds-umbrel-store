@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-dify_web_1
+      APP_PORT: 8080
+  web:
+    image: busybox:1.38.0@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e
+    user: "1000:1000"
+    restart: on-failure
+    command:
+    - sh
+    - -c
+    - 'mkdir -p /tmp/www && cat > /tmp/www/index.html <<''EOF''
+
+      <!doctype html><html><head><meta charset="utf-8"><title>Dify is not packaged in this store</title>
+
+      <style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem;line-height:1.5;color:#222}code{background:#f2f2f2;padding:.1rem .3rem}</style>
+
+      </head><body><h1>Dify is not packaged in this store</h1><p>Dify needs about ten containers and is not packaged here. Deploy it with the upstream <code>docker/docker-compose.yaml</code> as a Portainer stack, or use Flowise.</p></body></html>
+
+      EOF
+
+      exec httpd -f -p 8080 -h /tmp/www'
