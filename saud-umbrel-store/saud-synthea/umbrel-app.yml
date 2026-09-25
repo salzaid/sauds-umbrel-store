@@ -1,0 +1,24 @@
+manifestVersion: 1.1
+id: saud-synthea
+name: Synthea
+tagline: Synthetic patient generator with a file browser for the output
+icon: https://avatars.githubusercontent.com/synthetichealth?s=256
+category: developer
+version: "4.0.0"
+port: 5424
+description: |
+  Synthea generates realistic but fully synthetic patient records (FHIR R4 bundles and CSV). On each app start it generates a population of 100 patients into the output folder, which you can browse and download here.
+
+  The first start downloads the pinned Synthea 4.0.0 release (about 200 MB) and checks its SHA-256. Restart the app to generate another population.
+developer: The MITRE Corporation
+website: https://synthetichealth.github.io/synthea
+submitter: Saud Alzaid
+submission: https://github.com/CHANGE-ME/saud-umbrel-store
+repo: https://github.com/synthetichealth/synthea
+support: https://github.com/synthetichealth/synthea/issues
+gallery: []
+releaseNotes: ""
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
