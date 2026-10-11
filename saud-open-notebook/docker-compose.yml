@@ -6,6 +6,10 @@ services:
       APP_HOST: saud-open-notebook_web_1
       APP_PORT: 8502
       PROXY_AUTH_ADD: "true"
+      # Umbrel login protects the UI; /api/* is let through (otherwise the proxy
+      # redirects the browser's fetch calls to the Umbrel login -> "Failed to fetch").
+      # The API is protected by Open Notebook's own password instead (below).
+      PROXY_AUTH_WHITELIST: "/api/*"
 
   db:
     image: surrealdb/surrealdb:v2.3.10
@@ -27,9 +31,11 @@ services:
     environment:
       # Browser sends API calls to the same address/port as the UI (Umbrel app proxy on 8502);
       # Next.js inside the container forwards /api/* to the API on localhost:5055.
-      # Change umbrel.local to your Umbrel's IP if that is how you open it.
-      API_URL: http://umbrel.local:8502
+      # Must match exactly how you open Umbrel in the browser (hostname or IP).
+      API_URL: http://littlefucker.local:8502
       INTERNAL_API_URL: http://localhost:5055
+      # App login password = the password Umbrel shows on the app page
+      OPEN_NOTEBOOK_PASSWORD: ${APP_PASSWORD}
       OPEN_NOTEBOOK_ENCRYPTION_KEY: ${APP_SEED}
       SURREAL_URL: ws://saud-open-notebook_db_1:8000/rpc
       SURREAL_USER: root

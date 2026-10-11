@@ -2,7 +2,7 @@ manifestVersion: 1
 id: saud-open-notebook
 category: ai
 name: Open Notebook
-version: "1.15.0-1"
+version: "1.15.0-2"
 tagline: Private, self-hosted alternative to Google NotebookLM
 icon: https://raw.githubusercontent.com/lfnovo/open-notebook/main/frontend/public/logo.svg
 description: >-
@@ -23,9 +23,10 @@ repo: https://github.com/lfnovo/open-notebook
 support: https://github.com/lfnovo/open-notebook/issues
 port: 8502
 gallery: []
-releaseNotes: "Fix: route API calls through the Umbrel app proxy (API_URL) so the UI can reach the API."
+releaseNotes: "Fix: whitelist /api/* on the Umbrel app proxy and protect the API with Open Notebook password (Umbrel app password)."
 dependencies: []
 path: ""
 defaultUsername: ""
 defaultPassword: ""
+deterministicPassword: true
 torOnly: false
