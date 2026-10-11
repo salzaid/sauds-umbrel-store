@@ -25,6 +25,11 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/notebook:/app/data
     environment:
+      # Browser sends API calls to the same address/port as the UI (Umbrel app proxy on 8502);
+      # Next.js inside the container forwards /api/* to the API on localhost:5055.
+      # Change umbrel.local to your Umbrel's IP if that is how you open it.
+      API_URL: http://umbrel.local:8502
+      INTERNAL_API_URL: http://localhost:5055
       OPEN_NOTEBOOK_ENCRYPTION_KEY: ${APP_SEED}
       SURREAL_URL: ws://saud-open-notebook_db_1:8000/rpc
       SURREAL_USER: root
