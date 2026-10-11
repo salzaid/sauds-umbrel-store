@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-open-notebook_web_1
+      APP_PORT: 8502
+      PROXY_AUTH_ADD: "true"
+
+  db:
+    image: surrealdb/surrealdb:v2.3.10
+    user: "0:0"
+    restart: on-failure
+    command: ["start", "--log", "info", "--user", "root", "--pass", "${APP_SEED}", "rocksdb:/mydata/mydatabase.db"]
+    volumes:
+      - ${APP_DATA_DIR}/data/surreal:/mydata
+    environment:
+      SURREAL_EXPERIMENTAL_GRAPHQL: "true"
+
+  web:
+    image: lfnovo/open_notebook:1.15.0
+    restart: on-failure
+    depends_on:
+      - db
+    volumes:
+      - ${APP_DATA_DIR}/data/notebook:/app/data
+    environment:
+      OPEN_NOTEBOOK_ENCRYPTION_KEY: ${APP_SEED}
+      SURREAL_URL: ws://saud-open-notebook_db_1:8000/rpc
+      SURREAL_USER: root
+      SURREAL_PASSWORD: ${APP_SEED}
+      SURREAL_NAMESPACE: open_notebook
+      SURREAL_DATABASE: open_notebook
+      # One task at a time is kinder to a single local GPU / Ollama
+      OPEN_NOTEBOOK_WORKER_MAX_TASKS: "1"

@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: saud-open-notebook
+category: ai
+name: Open Notebook
+version: "1.15.0"
+tagline: Private, self-hosted alternative to Google NotebookLM
+icon: https://raw.githubusercontent.com/lfnovo/open-notebook/main/frontend/public/logo.svg
+description: >-
+  Open Notebook lets you collect PDFs, web pages, videos, audio and notes into
+  notebooks, then chat with them, generate summaries and transformations, and
+  create podcast-style audio overviews. It works with cloud AI providers
+  (OpenAI, Anthropic, Gemini, OpenRouter and more) or local models such as
+  Ollama on your Umbrel.
+
+
+  After installing, open Settings > Models in the app to add a provider.
+  For the Umbrel Ollama app use the Base URL http://ollama_ollama_1:11434
+developer: Luis Novo
+website: https://www.open-notebook.ai
+submitter: salzaid
+submission: https://github.com/salzaid/saud-umbrel-store
+repo: https://github.com/lfnovo/open-notebook
+support: https://github.com/lfnovo/open-notebook/issues
+port: 8502
+gallery: []
+releaseNotes: "Initial Saud store package of Open Notebook 1.15.0."
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+torOnly: false
