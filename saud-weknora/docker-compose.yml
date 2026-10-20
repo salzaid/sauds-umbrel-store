@@ -1,0 +1,134 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-weknora_frontend_1
+      APP_PORT: 80
+
+  frontend:
+    image: wechatopenai/weknora-ui:v0.8.3@sha256:94f7992e963b1e2e3b8dc429091f1204fde9c3cd985175b16f40b4142f915fe5
+    restart: on-failure
+    environment:
+      MAX_FILE_SIZE_MB: "100"
+      MAX_SKILL_BUNDLE_SIZE_MB: "256"
+      # nginx inside the UI container proxies /api, /files and streaming to the backend
+      APP_HOST: saud-weknora_app_1
+      APP_PORT: "8080"
+      APP_SCHEME: http
+    depends_on:
+      app:
+        condition: service_healthy
+
+  app:
+    image: wechatopenai/weknora-app:v0.8.3@sha256:b5f96b13c2f69779af8c7291264cafbda64c208398b019e3a6223c6f3ea82031
+    restart: on-failure
+    # AES-256 needs a key of exactly 32 bytes, so derive it from the first 32
+    # characters of the Umbrel app seed, then hand over to the stock entrypoint.
+    entrypoint: ["/bin/bash", "-c", "export SYSTEM_AES_KEY=\"$${UMBREL_SEED:0:32}\"; exec ./scripts/docker-entrypoint.sh ./WeKnora"]
+    volumes:
+      - ${APP_DATA_DIR}/data/files:/data/files
+      - ${APP_DATA_DIR}/data/docreader-tmp:/tmp/docreader:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    environment:
+      UMBREL_SEED: ${APP_SEED}
+      GIN_MODE: release
+      LOG_LEVEL: info
+      TZ: Asia/Kuwait
+      AUTO_MIGRATE: "true"
+      AUTO_RECOVER_DIRTY: "true"
+      # Database (ParadeDB = PostgreSQL 17 + pgvector + BM25)
+      DB_DRIVER: postgres
+      DB_HOST: saud-weknora_postgres_1
+      DB_PORT: "5432"
+      DB_USER: weknora
+      DB_PASSWORD: ${APP_SEED}
+      DB_NAME: weknora
+      RETRIEVE_DRIVER: postgres
+      # Redis (task queue + streaming)
+      STREAM_MANAGER_TYPE: redis
+      REDIS_ADDR: saud-weknora_redis_1:6379
+      REDIS_PASSWORD: ${APP_SEED}
+      REDIS_DB: "0"
+      REDIS_PREFIX: "stream:"
+      # Document parser
+      DOCREADER_ADDR: saud-weknora_docreader_1:50051
+      DOCREADER_TRANSPORT: grpc
+      # File storage on the Umbrel disk
+      STORAGE_TYPE: local
+      LOCAL_STORAGE_BASE_DIR: /data/files
+      MAX_FILE_SIZE_MB: "100"
+      # Stable secrets so logins and encrypted settings survive restarts
+      JWT_SECRET: ${APP_SEED}
+      SYSTEM_SIGNING_KEY: ${APP_SEED}
+      # Local models via the Umbrel Ollama app (optional; app still starts without it)
+      OLLAMA_BASE_URL: http://ollama_ollama_1:11434
+      OLLAMA_OPTIONAL: "true"
+      # Allow the backend to reach other Umbrel containers (blocked by SSRF rules otherwise)
+      SSRF_WHITELIST_EXTRA: ollama_ollama_1,saud-weknora_docreader_1
+      # Accounts: set to "true" after you have registered your own account
+      DISABLE_REGISTRATION: "false"
+      WEKNORA_SANDBOX_DOCKER_ENABLED: "false"
+      # Gentler concurrency for a single-GPU, 16 GB RAM box
+      CONCURRENCY_POOL_SIZE: "3"
+      WEKNORA_ASYNQ_CORE_CONCURRENCY: "4"
+      WEKNORA_ASYNQ_ENRICHMENT_CONCURRENCY: "4"
+      WEKNORA_WIKI_ASYNQ_CONCURRENCY: "2"
+      WEKNORA_MODEL_MAX_CONCURRENCY: "8"
+    depends_on:
+      redis:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      docreader:
+        condition: service_healthy
+
+  docreader:
+    image: wechatopenai/weknora-docreader:v0.8.3@sha256:9af668ac0ac857b9dfe8430d0fe77c0e5ad2636dc2b5285cd5500a13d5a35266
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/docreader-tmp:/tmp/docreader
+    environment:
+      TZ: Asia/Kuwait
+      LOG_LEVEL: INFO
+      DOCREADER_IMAGE_OUTPUT_DIR: /tmp/docreader
+      MAX_FILE_SIZE_MB: "100"
+      DOCREADER_GRPC_PORT: "50051"
+      DOCREADER_GRPC_MAX_WORKERS: "2"
+      DOCREADER_GRPC_MAX_FILE_SIZE_MB: "100"
+    healthcheck:
+      test: ["CMD", "grpc_health_probe", "-addr=localhost:50051"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+
+  postgres:
+    image: paradedb/paradedb:v0.25.11-pg17@sha256:78d65750f0f88a56548526201bcab9910f83b90fe929cdbf979890f3f80b0f95
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      POSTGRES_USER: weknora
+      POSTGRES_PASSWORD: ${APP_SEED}
+      POSTGRES_DB: weknora
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U weknora -d weknora"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:7.0-alpine@sha256:c9d92d840fd011c908f040592857c724ae6d877f2aba5c40ad963276507386b2
+    restart: on-failure
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${APP_SEED}"]
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data

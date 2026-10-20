@@ -1,0 +1,43 @@
+manifestVersion: 1
+id: saud-weknora
+category: ai
+name: WeKnora
+version: "0.8.3"
+tagline: Turn your documents into a private RAG knowledge base, agent and wiki
+icon: https://raw.githubusercontent.com/Tencent/WeKnora/main/docs/images/logo.png
+description: >-
+  WeKnora is Tencent's open-source, LLM-powered knowledge platform. Upload PDFs,
+  Word files, spreadsheets, images and web pages, and WeKnora parses, chunks and
+  indexes them into knowledge bases you can query with RAG chat, a ReAct
+  reasoning agent, or a self-maintaining wiki. It also exposes a REST API and an
+  MCP server.
+
+
+  First run: open the app, register the first account (it becomes your
+  workspace owner), then go to Settings > Models and add a chat model and an
+  embedding model.
+
+
+  Local models: install the Umbrel Ollama app and use the Base URL
+  http://ollama_ollama_1:11434 (for example qwen2.5 for chat and bge-m3 or
+  nomic-embed-text for embeddings). Cloud providers that speak the OpenAI API
+  also work.
+
+
+  This package runs the core stack only (web UI, API, document reader,
+  ParadeDB/pgvector and Redis). Optional add-ons such as Neo4j, Langfuse,
+  MinIO, Qdrant and the Docker code sandbox are not included.
+developer: Tencent
+website: https://github.com/Tencent/WeKnora
+submitter: salzaid
+submission: https://github.com/salzaid/saud-umbrel-store
+repo: https://github.com/Tencent/WeKnora
+support: https://github.com/Tencent/WeKnora/issues
+port: 5449
+gallery: []
+releaseNotes: "Initial package of WeKnora v0.8.3 (core stack)."
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+torOnly: false
