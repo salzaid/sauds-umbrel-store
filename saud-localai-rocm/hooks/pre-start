@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Make sure bind-mount folders exist with ownership LocalAI expects
+mkdir -p \
+  "${APP_DATA_DIR}/data/models" \
+  "${APP_DATA_DIR}/data/backends" \
+  "${APP_DATA_DIR}/data/data" \
+  "${APP_DATA_DIR}/data/configuration" \
+  "${APP_DATA_DIR}/data/images"
+
+chown -R 1000:1000 \
+  "${APP_DATA_DIR}/data/backends" \
+  "${APP_DATA_DIR}/data/data" \
+  "${APP_DATA_DIR}/data/configuration"
+
+# Warn (in the app logs) if the AMD compute device is missing on the host
+if [ ! -e /dev/kfd ]; then
+  echo "WARNING: /dev/kfd not found - the amdgpu kernel driver is not loaded; LocalAI will fail to start with the ROCm image." >&2
+fi

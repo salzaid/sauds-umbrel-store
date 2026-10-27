@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: saud-localai-rocm_api_1
+      APP_PORT: 8080
+      # Lets other apps / clients call the OpenAI-style API without the Umbrel login
+      PROXY_AUTH_WHITELIST: "/v1/*"
+
+  api:
+    # Official LocalAI ROCm (hipBLAS) build, ROCm 7.2.1, includes gfx1100 (RX 7900 XTX)
+    image: localai/localai:v4.12.1-gpu-hipblas@sha256:dd1780d582213e98b06ec90e4b7425e2d91a28170b6eb214529ff39d75839126
+    restart: on-failure
+    stop_grace_period: 1m
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/readyz"]
+      interval: 1m
+      timeout: 20m
+      retries: 5
+    devices:
+      - /dev/kfd
+      - /dev/dri
+    group_add:
+      - "44"    # video
+      - "991"   # render (check with: getent group render)
+    security_opt:
+      - seccomp=unconfined
+    environment:
+      - MODELS_PATH=/models
+      - LOCALAI_BACKENDS_PATH=/backends
+      # Force AMD so meta-backends (llama-cpp, whisper, stablediffusion...) resolve to ROCm builds
+      - LOCALAI_FORCE_META_BACKEND_CAPABILITY=amd
+      # Pre-install the ROCm llama.cpp backend on first start
+      - LOCALAI_EXTERNAL_BACKENDS=rocm-llama-cpp
+      # Keep at most 2 models in VRAM; least recently used is unloaded
+      - LOCALAI_MAX_ACTIVE_BACKENDS=2
+      - LOCALAI_WATCHDOG_IDLE=true
+      - LOCALAI_WATCHDOG_IDLE_TIMEOUT=30m
+      # Uncomment only if your GPU is not natively in the ROCm build (not needed for RX 7900 XTX)
+      # - HSA_OVERRIDE_GFX_VERSION=11.0.0
+    volumes:
+      - ${APP_DATA_DIR}/data/models:/models:cached
+      - ${APP_DATA_DIR}/data/backends:/backends:cached
+      - ${APP_DATA_DIR}/data/data:/data:cached
+      - ${APP_DATA_DIR}/data/configuration:/configuration:cached
+      - ${APP_DATA_DIR}/data/images:/tmp/generated/images

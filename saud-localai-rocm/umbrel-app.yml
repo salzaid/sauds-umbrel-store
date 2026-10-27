@@ -1,0 +1,53 @@
+manifestVersion: 1.1
+id: saud-localai-rocm
+category: ai
+name: LocalAI (AMD ROCm)
+version: "v4.12.1"
+tagline: OpenAI-compatible local AI, accelerated on AMD Radeon GPUs
+icon: https://getumbrel.github.io/umbrel-apps-gallery/localai/icon.svg
+description: >-
+  LocalAI is a free, open-source drop-in replacement for the OpenAI API. It runs
+  LLMs, embeddings, speech and image models locally.
+
+
+  This build uses the official LocalAI ROCm (hipBLAS) image and passes the AMD
+  GPU (/dev/kfd and /dev/dri) into the container, so models run on your Radeon
+  card instead of the CPU. The ROCm llama.cpp backend is pre-installed on first
+  start. Tested target: RX 7900 XTX (gfx1100); the image also covers RDNA2,
+  other RDNA3, RDNA4 and Instinct cards.
+
+
+  Requirements: an AMD GPU supported by ROCm 7.x, with /dev/kfd present on the
+  host. The image is about 4.3 GB, so the first install takes a while.
+
+
+  API endpoint for other apps on this Umbrel:
+  http://saud-localai-rocm_api_1:8080/v1
+
+
+  Note: the /v1 API is reachable on your local network without the Umbrel
+  login, the same as the official LocalAI app. Make sure the model fits in
+  VRAM and system RAM before loading it.
+releaseNotes: >-
+  Initial ROCm package based on LocalAI v4.12.1 (gpu-hipblas image, ROCm 7.2.1).
+  Full release notes: https://github.com/mudler/LocalAI/releases/tag/v4.12.1
+developer: Ettore Di Giacinto
+website: https://localai.io/
+dependencies: []
+repo: https://github.com/mudler/LocalAI
+support: https://github.com/mudler/LocalAI/discussions
+port: 8794
+gallery:
+  - https://getumbrel.github.io/umbrel-apps-gallery/localai/1.jpg
+  - https://getumbrel.github.io/umbrel-apps-gallery/localai/2.jpg
+  - https://getumbrel.github.io/umbrel-apps-gallery/localai/3.jpg
+  - https://getumbrel.github.io/umbrel-apps-gallery/localai/4.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+backupIgnore:
+  - data/models/*
+  - data/backends/*
+  - data/images/*
+submitter: Saud Alzaid
+submission: https://github.com/salzaid/saud-umbrel-store
