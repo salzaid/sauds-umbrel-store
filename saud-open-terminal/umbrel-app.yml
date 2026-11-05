@@ -1,0 +1,53 @@
+manifestVersion: 1
+id: saud-open-terminal
+category: ai
+name: Open Terminal
+version: "0.16.6"
+tagline: Sandboxed computer environment and REST/MCP API for AI agents and Open WebUI
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/7655ed83a9b26c50dc5f16888591da9d46d294a6/termix/icon.svg
+description: >-
+  Open Terminal is a self-hosted remote computer environment that gives AI
+  agents, Open WebUI, and automation tools a dedicated sandbox to run shell
+  commands, manage files, execute Python/Node.js code, run Jupyter notebooks,
+  and control a headless browser or virtual desktop over a simple REST and
+  WebSocket API.
+
+
+  This package runs the full ghcr.io/open-webui/open-terminal image (Python
+  3.12, Node.js 22, git, build tools, pandas/scipy/scikit-learn, matplotlib,
+  Jupyter, ffmpeg, pandoc, LibreOffice, Chromium, and XFCE VNC desktop), with
+  your workspace persisted in data/workspace (/home/user inside the container).
+
+
+  Connecting to Open WebUI on this Umbrel:
+
+  1. On your Umbrel dashboard, right-click Open Terminal and click "Show
+  default credentials" to copy your auto-generated Password (this is your
+  OPEN_TERMINAL_API_KEY).
+
+  2. In Open WebUI, go to Settings > Admin > Integrations > Open Terminal
+  (use the dedicated Open Terminal section, not Tool Servers).
+
+  3. Click + and set URL to http://saud-open-terminal_server_1:8000 and API Key
+  to the Umbrel app password, then Save.
+
+
+  Opening the app from the Umbrel dashboard launches the interactive Swagger API
+  documentation (/docs).
+releaseNotes: >-
+  Initial package for Open Terminal v0.16.6 (full sandbox image with Python,
+  Node.js, data science libraries, LibreOffice, Chromium browser, and virtual
+  desktop support).
+developer: Open WebUI
+website: https://openterminal.sh
+dependencies: []
+repo: https://github.com/open-webui/open-terminal
+support: https://github.com/open-webui/open-terminal/issues
+port: 5450
+gallery: []
+path: "/docs"
+defaultUsername: ""
+deterministicPassword: true
+torOnly: false
+submitter: salzaid
+submission: https://github.com/salzaid/saud-umbrel-store
